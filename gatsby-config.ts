@@ -12,13 +12,13 @@ const config: GatsbyConfig = {
   plugins: [{
     resolve: 'gatsby-source-contentful',
     options: {
-      "accessToken": "X4ahmZGamkEiPOeV5kiTxUpVDRMNzNEg_sD-iYcrbS8",
-      "spaceId": ""
+      "accessToken": process.env.CONTENTFUL_API_KEY,
+      "spaceId": process.env.CONTENTFUL_SPACE_ID,
     }
   }, "gatsby-plugin-image", "gatsby-plugin-sharp", "gatsby-transformer-sharp", "gatsby-plugin-sass", {
     resolve: 'gatsby-plugin-google-analytics',
     options: {
-      "trackingId": "zr76frs55jyn"
+      "trackingId": process.env.GA_TRACKING_ID,
     }
   }, "gatsby-plugin-sitemap", {
     resolve: 'gatsby-plugin-manifest',
