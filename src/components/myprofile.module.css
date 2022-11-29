@@ -4,7 +4,6 @@
   margin: 0 auto;
   max-width: var(--size-max-width);
   min-height: 200px;
-  padding: 0 0 var(--size-gutter);
   position: relative;
 }
 
@@ -45,21 +44,20 @@
   }
 }
 
+@media (max-width: 576px) {
+  .image {
+    height: 46.4vh;
+  }
+}
+
 @media (min-width: 768px) {
   .details {
     max-width: 44rem;
-    /* padding: var(--space-3xl) var(--size-gutter) 0; */
   }
 }
 
 @media (min-width: 1024px) {
   .image {
     margin-left: auto;
-    /* width: 85%; */
-  }
-
-  .details {
-    left: var(--size-gutter);
-    /* padding: var(--space-3xl) var(--size-gutter) 0 0; */
   }
 }
