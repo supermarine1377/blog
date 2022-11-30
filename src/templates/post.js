@@ -11,13 +11,13 @@ const Post = (ctx) => {
     <Layout>
       <Main>
         <article>
-          <div className={styles.imageWrapper}>
+          <header className={styles.imageWrapper}>
             <GatsbyImage 
               image={post.featuredImage.gatsbyImage} 
               title={post.featuredImage.title}
               alt={post.featuredImage.title}
             />
-          </div>
+          </header>
           <section className={styles.body}>
             <Headline str={post.title} />
             <div            

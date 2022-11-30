@@ -13,18 +13,9 @@ const Navigation = (siteData) => {
           {title}
         </span>
       </Link>
-      <ul className={styles.navigation}>
-        <li className={styles.navigationItem}>
-          <Link to="/" activeClassName="active">
-            Home
-          </Link>
-        </li>
-        <li className={styles.navigationItem}>
-          <Link to="/blog/" activeClassName="active">
-            Blog
-          </Link>
-        </li>
-      </ul>
+      <Link to="/" activeClassName="active" className={styles.home}>
+        Home
+      </Link>
     </nav>
   )
 }

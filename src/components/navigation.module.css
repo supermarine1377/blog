@@ -40,6 +40,10 @@
   gap: var(--space-md);
 }
 
+.home {
+  font-weight: var(--bold);
+}
+
 @media (max-width: 767px) {
   .logoLink > span:last-child {
     border: 0;

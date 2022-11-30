@@ -15,7 +15,7 @@ const MyProfile = ({ topImage, description }) => {
   `)
   const title = data.site.siteMetadata.title
   return (
-    <div className={styles.myprofile}>
+    <header className={styles.myprofile}>
       { topImage && (
         <GatsbyImage 
           className={styles.image}
@@ -31,7 +31,7 @@ const MyProfile = ({ topImage, description }) => {
           {description}
         </p>
       </div>
-    </div>
+    </header>
   )
 }
 
