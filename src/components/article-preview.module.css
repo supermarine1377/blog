@@ -1,0 +1,22 @@
+.link {
+  text-decoration: none;
+}
+
+.link:hover .title {
+  border-bottom-color: var(--primary);
+}
+
+.title {
+  display: inline-block;
+  font-size: var(--text-lg);
+  margin-bottom: 0;
+  margin-top: var(--space-lg);
+  border-bottom: 1.5px solid transparent;
+}
+
+.meta {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--space-sm);
+  margin-bottom: 0;
+}

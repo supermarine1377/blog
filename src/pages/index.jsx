@@ -1,8 +1,10 @@
 import React from "react"
-import Layout from "../components/layout"
 import { graphql} from 'gatsby'
+import Layout from "../components/layout"
 import MyProfile from "../components/myprofile"
+import Main from "../components/main"
 import ArticlePreviewList from "../components/article-preview-list"
+import Headline from "../components/headline"
 
 const Index = ({data}) => {
   const topImage = data.contentfulIndex.topImage
@@ -11,9 +13,12 @@ const Index = ({data}) => {
   return (
     <Layout>
       <MyProfile topImage={topImage} description={description} />
-      <main style={{padding: "4vw 0"}}>
-        <ArticlePreviewList posts={posts} />
-      </main>
+      <Main>
+        <section>
+          <Headline str="最近の投稿" />
+          <ArticlePreviewList posts={posts} />
+        </section>
+      </Main>
     </Layout>
   )
 }
@@ -32,6 +37,7 @@ export const query = graphql`
       }
     }
     allContentfulPost(limit: 6, sort: {createdAt: DESC}) {
+      totalCount
       nodes {
         id
         slug
@@ -48,9 +54,6 @@ export const query = graphql`
         }
         createdAt
         updatedAt
-        body {
-          raw
-        }
       }
     }
   }

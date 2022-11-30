@@ -1,0 +1,9 @@
+.imageWrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.body {
+  padding: 4vh 6vw;
+}

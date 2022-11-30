@@ -13,13 +13,13 @@ const ArticlePreviewList = ({ posts }) => {
 
   return (
     <div className={styles.container}>
-      <section className={styles.articleList}>
+      <div className={styles.articleList}>
         {posts.map((post) => {        
           return (
             <ArticlePreview post={post} />
           )
         })}
-      </section>
+      </div>
     </div>
   )
 }

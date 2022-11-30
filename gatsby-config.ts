@@ -44,6 +44,20 @@ const config: GatsbyConfig = {
       "path": "./src/pages/"
     },
     __key: "pages"
+  }, {
+    resolve: 'gatsby-transformer-remark',
+    options: {
+      plugins: [
+        {
+          resolve: `gatsby-remark-images-contentful`,
+          options: {
+            maxWidth: 560,
+            showCaptions: true,
+            withWebp: true,
+          },
+        },
+      ],
+    },
   }]
 };
 
