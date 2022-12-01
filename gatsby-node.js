@@ -1,6 +1,6 @@
 const path = require(`path`)
 // const { paginate } = require(`gatsby-awesome-pagination`)
-const { PostPagePath } = require(`./src/util/page-path.jsx`)
+const { PostPagePath } = require(`./src/util/page-path.js`)
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions

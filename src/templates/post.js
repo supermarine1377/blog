@@ -4,6 +4,7 @@ import Main from "../components/main"
 import Headline from "../components/headline"
 import { GatsbyImage } from "gatsby-plugin-image"
 import * as styles from "./post.module.css"
+import toFormattedJst from "../util/jst"
 
 const Post = (ctx) => {
   const post = ctx.pageContext.post
@@ -20,6 +21,7 @@ const Post = (ctx) => {
           </header>
           <section className={styles.body}>
             <Headline str={post.title} />
+            <p>{toFormattedJst(post.createdAt)}</p>
             <div            
               dangerouslySetInnerHTML={{__html: post.body.childMarkdownRemark.html}}
             />
