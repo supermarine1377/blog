@@ -1,10 +1,9 @@
 import React from "react"
 import { Link } from "gatsby"
 import * as styles from "./paginator.module.css"
-const { numberOfPostsPerPage } = require('../config')
-const { PostsPagePath } = require("../util/page-path")
 
 const Paginator = ({ numPosts, currentPage }) => {
+  const { numberOfPostsPerPage } = require('../config')
   const numPages = Math.ceil(numPosts / numberOfPostsPerPage)
   const pageArr = Array.from(Array(numPages).keys())
 
@@ -12,7 +11,7 @@ const Paginator = ({ numPosts, currentPage }) => {
     <div className={styles.container}>
       {pageArr.map(page=> {
         return (
-          <PageLink page = {page + 1} key = {page} isBold = {currentPage == page + 1} />
+          <PageLink page = {page + 1} key = {page} isBold = {currentPage === page + 1} />
         )
       })}
     </div>
@@ -20,6 +19,13 @@ const Paginator = ({ numPosts, currentPage }) => {
 }
 
 const PageLink = ( {page, isBold} ) => {
+  const { PostsPagePath } = require("../util/page-path")
+  let to
+  if (page === 1) {
+    to = "/"
+  } else {
+    to = PostsPagePath(page)
+  }
   return (
     <>
     {
@@ -31,7 +37,7 @@ const PageLink = ( {page, isBold} ) => {
     }
     {
       !isBold && (
-        <Link to={PostsPagePath(page)}>
+        <Link to={to}>
           {page}
         </Link>
       )
