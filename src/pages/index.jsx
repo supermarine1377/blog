@@ -7,26 +7,44 @@ import ArticlePreviewList from "../components/article-preview-list"
 import Headline from "../components/headline"
 
 const Index = ({ data }) => {
+  const title = data.site.siteMetadata.title
   const topImage = data.contentfulIndex.topImage
   const description = data.contentfulIndex.description
   const posts = data.allContentfulPost.nodes
   return (
-    <Layout>
-      <MyProfile topImage={topImage} description={description} />
-      <Main>
-        <section>
-          <Headline str="最近の投稿" />
-          <ArticlePreviewList posts={posts} />
-        </section>
-      </Main>
-    </Layout>
+    <>
+      <Layout>
+        <MyProfile title={title} topImage={topImage} description={description} />
+        <Main>
+          <section>
+            <Headline str="最近の投稿" />
+            <ArticlePreviewList posts={posts} />
+          </section>
+        </Main>
+      </Layout>
+    </>
   )
 }
 
-export default Index
+export const Head = ({ data }) => {
+  const title = data.site.siteMetadata.title
+  const description = data.contentfulIndex.description
+
+  return (
+    <>
+      <title>{title}</title>
+      <meta name="description" content={description} />
+    </>
+  )
+}
 
 export const topQuery = graphql`
   query {
+    site {
+      siteMetadata {
+        title
+      }
+    }
     contentfulIndex {
       id
       title
@@ -58,3 +76,6 @@ export const topQuery = graphql`
     }
   }
 `
+
+export default Index
+

@@ -7,6 +7,11 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const result = await graphql(`
     {
+      site {
+        siteMetadata {
+          title
+        }
+      }
       contentfulIndex {
         id
         title
@@ -48,6 +53,8 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const postsPerPage = 6
 
+  const siteTitle = result.data.site.siteMetadata.title
+
   const posts = result.data.allContentfulPost.edges
   const numPosts = result.data.allContentfulPost.totalCount
   const numPages = Math.ceil(numPosts / postsPerPage)
@@ -56,12 +63,13 @@ exports.createPages = async ({ graphql, actions }) => {
     const page = i + 1
     createPage({
       path: PostsPagePath(page),
-      component: path.resolve('src/templates/page.js'),
+      component: path.resolve('src/templates/page.jsx'),
       context: {
         limit: postsPerPage,
         skip: i * postsPerPage,
         numPages,
         currentPage: i + 1,
+        siteTitle: siteTitle
       }
     })
   })
@@ -72,9 +80,10 @@ exports.createPages = async ({ graphql, actions }) => {
       const post = node.node
       createPage({
         path: PostPagePath(post.slug),
-        component: path.resolve(`src/templates/post.js`),
+        component: path.resolve(`src/templates/post.jsx`),
         context: {
-          post: post
+          post: post,
+          siteTitle: siteTitle
         }
       })
     }

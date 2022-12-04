@@ -6,13 +6,13 @@ import Main from "../components/main"
 import ArticlePreviewList from "../components/article-preview-list"
 
 const Page = ({ data }) => {
-  console.log(data)
+  const title = data.site.siteMetadata.title
   const topImage = data.contentfulIndex.topImage
   const description = data.contentfulIndex.description
   const posts = data.allContentfulPost.nodes
   return (
     <Layout>
-      <MyProfile topImage={topImage} description={description} />
+      <MyProfile title={title} topImage={topImage} description={description} />
       <Main>
         <section>
           <ArticlePreviewList posts={posts} />
@@ -22,8 +22,24 @@ const Page = ({ data }) => {
   )
 }
 
+export const Head = ({ data }) => {
+  const title = data.site.siteMetadata.title
+  const description = data.contentfulIndex.description
+  return (
+    <>
+      <title>{title}</title>
+      <meta name="description" content={description} />
+    </>
+  )
+}
+
 export const pageQuery = graphql`
   query pageQuery($skip: Int!, $limit: Int!) {
+    site {
+      siteMetadata {
+        title
+      }
+    }
     contentfulIndex {
       id
       title
@@ -39,6 +55,7 @@ export const pageQuery = graphql`
         id
         slug
         title
+        description
         featuredImage {
           id
           title

@@ -32,4 +32,17 @@ const Post = (ctx) => {
   )
 }
 
+export const Head = (ctx) => {
+  const siteTitle = ctx.pageContext.siteTitle
+  const postTitle = ctx.pageContext.post.title
+  const title = `${postTitle} | ${siteTitle}`
+  const description = ctx.pageContext.post.description
+  return (
+    <>
+      <title>{title}</title>
+      <meta name="description" content={description} />
+    </>
+  )
+}
+
 export default Post
