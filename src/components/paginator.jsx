@@ -26,6 +26,8 @@ const PageLink = ( {page, isBold} ) => {
   } else {
     to = PostsPagePath(page)
   }
+  
+  
   return (
     <>
     {
