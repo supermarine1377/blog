@@ -5,12 +5,14 @@ import MyProfile from "../components/myprofile"
 import Main from "../components/main"
 import ArticlePreviewList from "../components/article-preview-list"
 import Headline from "../components/headline"
+import Paginator from "../components/paginator"
 
 const Index = ({ data }) => {
   const title = data.site.siteMetadata.title
   const topImage = data.contentfulIndex.topImage
   const description = data.contentfulIndex.description
   const posts = data.allContentfulPost.nodes
+  const totalCount = data.allContentfulPost.totalCount
   return (
     <>
       <Layout>
@@ -20,6 +22,7 @@ const Index = ({ data }) => {
             <Headline str="最近の投稿" />
             <ArticlePreviewList posts={posts} />
           </section>
+          <Paginator currentPage={1} numPosts={totalCount} />
         </Main>
       </Layout>
     </>

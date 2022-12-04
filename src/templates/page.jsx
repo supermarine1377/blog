@@ -4,12 +4,15 @@ import Layout from "../components/layout"
 import MyProfile from "../components/myprofile"
 import Main from "../components/main"
 import ArticlePreviewList from "../components/article-preview-list"
+import Paginator from "../components/paginator"
 
-const Page = ({ data }) => {
+const Page = ({ data, pageContext}) => {
   const title = data.site.siteMetadata.title
   const topImage = data.contentfulIndex.topImage
   const description = data.contentfulIndex.description
   const posts = data.allContentfulPost.nodes
+  const totalCount = data.allContentfulPost.totalCount
+  const currentPage = pageContext.currentPage
   return (
     <Layout>
       <MyProfile title={title} topImage={topImage} description={description} />
@@ -17,6 +20,7 @@ const Page = ({ data }) => {
         <section>
           <ArticlePreviewList posts={posts} />
         </section>
+        <Paginator currentPage={currentPage} numPosts={totalCount} />
       </Main>
     </Layout>
   )

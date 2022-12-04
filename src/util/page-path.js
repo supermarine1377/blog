@@ -1,4 +1,7 @@
 const PostsPagePath = (page) => {
+  if (page == 1) {
+    return "/"
+  }
   return `/posts/${page}`
 }
 

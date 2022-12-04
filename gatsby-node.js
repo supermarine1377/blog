@@ -1,5 +1,6 @@
 const path = require(`path`)
 const { PostsPagePath, PostPagePath } = require(`./src/util/page-path.js`)
+const { numberOfPostsPerPage } = require('./src/config')
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
@@ -51,14 +52,14 @@ exports.createPages = async ({ graphql, actions }) => {
     return
   }
 
-  const postsPerPage = 6
+  const postsPerPage = numberOfPostsPerPage
 
   const siteTitle = result.data.site.siteMetadata.title
 
   const posts = result.data.allContentfulPost.edges
   const numPosts = result.data.allContentfulPost.totalCount
   const numPages = Math.ceil(numPosts / postsPerPage)
-  // create /{page}
+  // create /posts/{page}
   Array.from({ length: numPages }).forEach((_, i) => {
     const page = i + 1
     createPage({
