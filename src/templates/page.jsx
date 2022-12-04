@@ -6,7 +6,7 @@ import Main from "../components/main"
 import ArticlePreviewList from "../components/article-preview-list"
 import Paginator from "../components/paginator"
 
-const Page = ({ data, pageContext}) => {
+const Page = ({ data, pageContext }) => {
   const title = data.site.siteMetadata.title
   const topImage = data.contentfulIndex.topImage
   const description = data.contentfulIndex.description
