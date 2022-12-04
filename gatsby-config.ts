@@ -1,8 +1,13 @@
 import type { GatsbyConfig } from "gatsby";
 
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 const config: GatsbyConfig = {
   siteMetadata: {
-    title: `ukatanomitama`,
+    title: `投資ブログ（仮タイトル)`,
+    description: `投資ブログの仮説明`,
     siteUrl: `https://www.yourdomain.tld`
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
@@ -39,6 +44,24 @@ const config: GatsbyConfig = {
       "path": "./src/pages/"
     },
     __key: "pages"
+  }, {
+    resolve: 'gatsby-transformer-remark',
+    options: {
+      plugins: [
+        {
+          resolve: `gatsby-remark-images-contentful`,
+          options: {
+            maxWidth: 560,
+            showCaptions: true,
+            withWebp: true,
+          },
+        },
+      ],
+    }, 
+  }, {
+    resolve: 'gatsby-plugin-sitemap'
+  }, {
+    resolve: 'gatsby-plugin-robots-txt'
   }]
 };
 

@@ -1,0 +1,24 @@
+.container {
+  margin: 0 auto;
+  max-width: 1120px;
+  /* padding: 0 4vw; */
+}
+
+.articleList {
+  grid-gap: 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: space-between;
+}
+
+@media (max-width: 980px) {
+  .articleList {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 680px) {
+  .articleList {
+    grid-template-columns: 1fr;
+  }
+}
