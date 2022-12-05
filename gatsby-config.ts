@@ -20,12 +20,8 @@ const config: GatsbyConfig = {
       "accessToken": process.env.CONTENTFUL_API_KEY,
       "spaceId": process.env.CONTENTFUL_SPACE_ID,
     }
-  }, "gatsby-plugin-image", "gatsby-plugin-sharp", "gatsby-transformer-sharp", "gatsby-plugin-sass", {
-    resolve: 'gatsby-plugin-google-analytics',
-    options: {
-      "trackingId": process.env.GA_TRACKING_ID,
-    }
-  }, "gatsby-plugin-sitemap", {
+  }, "gatsby-plugin-image", "gatsby-plugin-sharp", "gatsby-transformer-sharp", "gatsby-plugin-sass", "gatsby-plugin-sitemap",
+  {
     resolve: 'gatsby-plugin-manifest',
     options: {
       "icon": "src/images/icon.png"
@@ -62,6 +58,16 @@ const config: GatsbyConfig = {
     resolve: 'gatsby-plugin-sitemap'
   }, {
     resolve: 'gatsby-plugin-robots-txt'
+  }, {
+    resolve: 'gatsby-plugin-google-gtag',
+    options: {
+      trackingIds: [
+        process.env.GA_MEASUREMENT_ID
+      ],
+      pluginConfig: {
+        head: true
+      }
+    }
   }]
 };
 
