@@ -27,6 +27,12 @@
   margin-left: 24px;
 }
 
+.body a {
+  color: #26a8ed;
+  text-decoration: underline;
+  background-color: transparent;
+}
+
 @media (max-width: 576px) {
   .body {
     padding: 4vh 4vw;
