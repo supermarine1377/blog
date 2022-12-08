@@ -47,11 +47,18 @@ const config: GatsbyConfig = {
         {
           resolve: `gatsby-remark-images-contentful`,
           options: {
-            maxWidth: 560,
+            maxWidth: 680,
             showCaptions: true,
             withWebp: true,
           },
         },
+        {
+          resolve: "gatsby-remark-external-links",
+          options: {
+            target: "_brank",
+            rel: "nofollow noopener"
+          }
+        }
       ],
     }, 
   }, {

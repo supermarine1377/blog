@@ -9,16 +9,20 @@
 }
 
 .body h2 {
-  font-size: 20px;
+  font-size: 22px;
   margin: 20px 0;
 }
 
 .body h3 {
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .body h4 {
-  font-size: 12px;
+  font-size: 18px;
+}
+
+.body p {
+  font-size: 18px;
 }
 
 .body blockquote {
@@ -27,8 +31,17 @@
   margin-left: 24px;
 }
 
+.body a {
+  color: #26a8ed;
+  text-decoration: underline;
+  background-color: transparent;
+}
+
 @media (max-width: 576px) {
   .body {
     padding: 4vh 4vw;
+  }
+  .body p {
+    font-size: 18px;
   }
 }
