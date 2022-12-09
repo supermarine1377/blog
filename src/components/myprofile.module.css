@@ -2,7 +2,6 @@
   align-items: flex-end;
   display: flex;
   margin: 0 auto;
-  max-width: var(--size-max-width);
   min-height: 200px;
   position: relative;
 }
