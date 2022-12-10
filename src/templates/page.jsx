@@ -33,8 +33,6 @@ export const Head = ({ data }) => {
     <>
       <title>{title}</title>
       <meta name="description" content={description} />
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8654869064923371"
-     crossorigin="anonymous"></script>
     </>
   )
 }
