@@ -22,9 +22,6 @@ const MyProfile = ({ title, topImage, description }) => {
         </p>
         <div className={styles.links}>
           <a href="https://investment.blogmura.com/americatoushi/ranking/in?p_cid=11158132" target="_blank">
-            {/* <img src="ezgif-3-c04f2b8e93.jpg" 
-              width="88" height="31" border="0" alt="にほんブログ村 投資ブログ 米国投資へ" 
-            /> */}
             <StaticImage src="../images/banner.jpg" width={88} height={31} />
           </a>
           <a href="https://investment.blogmura.com/americatoushi/ranking/in?p_cid=11158132" target="_blank">
