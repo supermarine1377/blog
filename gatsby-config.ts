@@ -9,7 +9,7 @@ const config: GatsbyConfig = {
     title: "米国株投資について語る",
     description:
       "米国株や米国長期債券を中心に投資しています。このブログでは、米国株に投資するにあたっての考え方を発信します。",
-    siteUrl: "https://utakanomitama.netlify.app",
+    siteUrl: "https://ukatanomitama.com",
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
   // If you use VSCode you can also use the GraphQL plugin
