@@ -33,6 +33,15 @@ const MyProfile = ({ title, topImage, description }) => {
             にほんブログ村
           </a>
         </div>
+        <div className={styles.sns}>
+          <a href="https://twitter.com/us_investing137" target="_blank" rel="noopener noreferrer" aria-label="公式Twitterアカウントへ">
+            <StaticImage
+              src="../images/twitter.png"
+              height={26}
+              alt={"Twitterのロゴ"}
+            />
+          </a>
+        </div>
       </div>
     </header>
   )

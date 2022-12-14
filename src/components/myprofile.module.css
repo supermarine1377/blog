@@ -17,7 +17,7 @@
   width: 85%;
   position: absolute;
   left: 50%;
-  top: 25%;
+  bottom: 10%;
   transform: translate(-50%, 0);
   text-align: center;
 }
@@ -39,6 +39,13 @@
   justify-content: center;
   align-items: center;
   gap: 32px;
+  margin-bottom: 22px;
+}
+
+.sns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @media (max-width: 576px) {
