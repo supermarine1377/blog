@@ -32,6 +32,13 @@ const MyProfile = ({ title, topImage, description }) => {
           <a href="https://investment.blogmura.com/americatoushi/ranking/in?p_cid=11158132" target="_blank" rel="noopener noreferrer" aria-label="にほんブログ村へ">
             にほんブログ村
           </a>
+          <a href="https://twitter.com/us_investing137" target="_blank" rel="noopener noreferrer" aria-label="公式Twitterアカウントへ">
+            <StaticImage
+              src="../images/twitter.png"
+              height={26}
+              alt={"Twitterのロゴ"}
+            />
+          </a>
         </div>
       </div>
     </header>
