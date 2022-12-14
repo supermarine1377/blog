@@ -78,6 +78,11 @@ const config: GatsbyConfig = {
     },
     {
       resolve: "gatsby-plugin-robots-txt",
+      options: {
+        host: 'https://ukatanomitama.com',
+        sitemap: 'https://ukatanomitama.com/sitemap-index.xml',
+        policy: [{userAgent: '*', allow: '/'}]
+      }
     },
     {
       resolve: "gatsby-plugin-google-gtag",
