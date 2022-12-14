@@ -7,7 +7,7 @@
 }
 
 .image {
-  height: 49.44vh;
+  height: 52vh;
   width: 100%;
 }
 
@@ -17,7 +17,7 @@
   width: 85%;
   position: absolute;
   left: 50%;
-  bottom: 10%;
+  bottom: 15%;
   transform: translate(-50%, 0);
   text-align: center;
 }
