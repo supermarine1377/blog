@@ -100,6 +100,75 @@ const config: GatsbyConfig = {
         siteUrl: `https://ukatanomitama.com`,
       },
     },
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+                site_url: siteUrl
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allContentfulPost } }) => {
+              return allContentfulPost.edges.map(edge => {
+                const title = edge.node.title
+                const description = edge.node.description
+                const date = edge.node.createdAt
+                const slug = edge.node.slug
+                const url = `${site.siteMetadata.siteUrl}/post/${slug}`
+                const id = edge.node.id
+                const html = edge.node.body.childMarkdownRemark.html
+                return Object.assign({}, {
+                  title: title,
+                  description: description,
+                  date: date,
+                  url: url,
+                  guid: id,
+                  custom_elements: [{ "content:encoded": html }],
+                })
+              })
+            },
+            query: `
+              {
+                allContentfulPost {
+                  edges {
+                    node {
+                      id
+                      slug
+                      title
+                      description
+                      createdAt
+                      body {
+                        childMarkdownRemark {
+                          html
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            `,
+            output: "/rss.xml",
+            title: "米国株投資について語る",
+            // optional configuration to insert feed reference in pages:
+            // if `string` is used, it will be used to create RegExp and then test if pathname of
+            // current page satisfied this regular expression;
+            // if not provided or `undefined`, all pages will have feed reference inserted
+            match: "^/blog/",
+            // optional configuration to specify external rss feed, such as feedburner
+            link: "https://ukatanomitama.com",
+          },
+        ],
+      },
+    },
   ],
 };
 
