@@ -5,6 +5,7 @@ import MyProfile from "../components/myprofile"
 import Main from "../components/main"
 import ArticlePreviewList from "../components/article-preview-list"
 import Paginator from "../components/paginator"
+import Seo from "../meta/seo"
 
 const Page = ({ data, pageContext }) => {
   const title = data.site.siteMetadata.title
@@ -26,22 +27,36 @@ const Page = ({ data, pageContext }) => {
   )
 }
 
-export const Head = ({ data }) => {
-  const title = data.site.siteMetadata.title
+export const Head = ({ data, pageContext }) => {
+  const title = pageContext.site.siteMetadata.title
   const description = data.contentfulIndex.description
+  const siteUrl = `${data.site.siteMetadata.siteUrl}/${pageContext.currentPage}`
+  const imageUrl = data.contentfulIndex.topImage.url
+  const twitterAccount = data.site.siteMetadata.twitterAccount
+
   return (
-    <>
-      <title>{title}</title>
-      <meta name="description" content={description} />
-    </>
+    <Seo 
+      meta={{
+        title: title,
+        description: description,
+        siteUrl: siteUrl,
+        imageUrl: imageUrl,
+        twitterAccount: twitterAccount
+      }} 
+    />
   )
 }
 
+// TODO: Don't query the commmon data like the site-metadata, contentfulIndex
+// Instead query them in gatsby-node.js and pass them as props to this page
 export const pageQuery = graphql`
   query pageQuery($skip: Int!, $limit: Int!) {
     site {
       siteMetadata {
         title
+        description
+        siteUrl
+        twitterAccount
       }
     }
     contentfulIndex {
@@ -51,6 +66,7 @@ export const pageQuery = graphql`
       topImage {
         title
         gatsbyImage(layout: CONSTRAINED, placeholder: BLURRED, height: 200)
+        url
       }
     }
     allContentfulPost(limit: $limit, skip: $skip, sort: {createdAt: DESC}) {

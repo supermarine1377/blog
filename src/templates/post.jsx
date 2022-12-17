@@ -5,6 +5,7 @@ import Headline from "../components/headline"
 import { GatsbyImage } from "gatsby-plugin-image"
 import * as styles from "./post.module.css"
 import toFormattedJst from "../util/jst"
+import Seo from "../meta/seo"
 
 const Post = (ctx) => {
   const post = ctx.pageContext.post
@@ -33,15 +34,29 @@ const Post = (ctx) => {
 }
 
 export const Head = (ctx) => {
-  const siteTitle = ctx.pageContext.siteTitle
+  const siteTitle = ctx.pageContext.site.siteMetadata.title
+  const siteBaseUrl = ctx.pageContext.site.siteMetadata.siteUrl
+
   const postTitle = ctx.pageContext.post.title
+  const slug = ctx.pageContext.post.slug
+
   const title = `${postTitle} | ${siteTitle}`
+  const postUrl = `${siteBaseUrl}/post/${slug}`
+
   const description = ctx.pageContext.post.description
+  const imageUrl= ctx.pageContext.post.featuredImage.url
+  const twitterAccount = ctx.pageContext.site.siteMetadata.twitterAccount
+
   return (
-    <>
-      <title>{title}</title>
-      <meta name="description" content={description} />
-    </>
+    <Seo
+      meta = {{
+        title: title,
+        description: description,
+        siteUrl: postUrl,
+        imageUrl: imageUrl,
+        twitterAccount: twitterAccount
+      }}
+    />
   )
 }
 
