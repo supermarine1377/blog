@@ -5,6 +5,7 @@ import MyProfile from "../components/myprofile"
 import Main from "../components/main"
 import ArticlePreviewList from "../components/article-preview-list"
 import Paginator from "../components/paginator"
+import Seo from "../meta/seo"
 
 const Page = ({ data, pageContext }) => {
   const title = data.site.siteMetadata.title
@@ -26,14 +27,20 @@ const Page = ({ data, pageContext }) => {
   )
 }
 
-export const Head = ({ data }) => {
-  const title = data.site.siteMetadata.title
+export const Head = ({ data, pageContext }) => {
+  const title = pageContext.site.siteMetadata.title
   const description = data.contentfulIndex.description
+  const siteUrl = `${data.site.siteMetadata.siteUrl}/${pageContext.currentPage}`
+  const imageUrl = data.contentfulIndex.topImage.url
   return (
-    <>
-      <title>{title}</title>
-      <meta name="description" content={description} />
-    </>
+    <Seo 
+      meta={{
+        title: title,
+        description: description,
+        siteUrl: siteUrl,
+        imageUrl: imageUrl,
+      }} 
+    />
   )
 }
 
@@ -42,6 +49,8 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+        description
+        siteUrl
       }
     }
     contentfulIndex {
@@ -51,6 +60,7 @@ export const pageQuery = graphql`
       topImage {
         title
         gatsbyImage(layout: CONSTRAINED, placeholder: BLURRED, height: 200)
+        url
       }
     }
     allContentfulPost(limit: $limit, skip: $skip, sort: {createdAt: DESC}) {

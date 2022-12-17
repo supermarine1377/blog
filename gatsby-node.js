@@ -10,6 +10,9 @@ exports.createPages = async ({ graphql, actions }) => {
       site {
         siteMetadata {
           title
+          description
+          siteUrl
+          twitterAccount
         }
       }
       contentfulIndex {
@@ -19,6 +22,7 @@ exports.createPages = async ({ graphql, actions }) => {
         topImage {
           title
           gatsbyImage(layout: CONSTRAINED, placeholder: BLURRED, height: 200)
+          url
         }
       }
       allContentfulPost {
@@ -32,6 +36,7 @@ exports.createPages = async ({ graphql, actions }) => {
               gatsbyImage(width: 504)
               title
               description
+              url
             }
             description
             createdAt
@@ -53,11 +58,13 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const postsPerPage = numberOfPostsPerPage
 
-  const siteTitle = result.data.site.siteMetadata.title
+  const site = result.data.site
+  // const siteTitle = result.data.site.siteMetadata.title
 
   const posts = result.data.allContentfulPost.edges
   const numPosts = result.data.allContentfulPost.totalCount
   const numPages = Math.ceil(numPosts / postsPerPage)
+  
   // create /posts/{page}
   Array.from({ length: numPages }).forEach((_, i) => {
     const page = i + 1
@@ -69,7 +76,7 @@ exports.createPages = async ({ graphql, actions }) => {
         skip: i * postsPerPage,
         numPages,
         currentPage: i + 1,
-        siteTitle: siteTitle
+        site: site,
       }
     })
   })
@@ -83,7 +90,7 @@ exports.createPages = async ({ graphql, actions }) => {
         component: path.resolve(`src/templates/post.jsx`),
         context: {
           post: post,
-          siteTitle: siteTitle
+          site: site
         }
       })
     }
