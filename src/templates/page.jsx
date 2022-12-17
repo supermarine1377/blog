@@ -47,9 +47,9 @@ export const Head = ({ data, pageContext }) => {
   )
 }
 
+// TODO: Don't query the commmon data like the site-metadata, contentfulIndex
+// Instead query them in gatsby-node.js and pass them as props to this page
 export const pageQuery = graphql`
-  // TODO: Don't query the commmon data like the site-metadata, contentfulIndex
-  // Instead query them in gatsby-node.js and pass them as props to this page
   query pageQuery($skip: Int!, $limit: Int!) {
     site {
       siteMetadata {
