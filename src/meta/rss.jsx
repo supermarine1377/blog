@@ -1,9 +1,8 @@
 import React from "react";
+import { Link } from "gatsby";
 
 const Rss = () => {
-  return (
-    <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss.xml"></link>
-  )
+  return <Link to="/rss.xml">RSS feed</Link>
 }
 
 export default Rss
