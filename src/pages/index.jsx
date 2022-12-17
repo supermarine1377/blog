@@ -40,7 +40,7 @@ export const Head = ({ data }) => {
 
   return (
     <>
-      <Rss />
+      <Rss baseUrl={siteUrl} />
       <Seo
         meta={{
           title: title,

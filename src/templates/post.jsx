@@ -50,7 +50,7 @@ export const Head = (ctx) => {
 
   return (
     <>
-      <Rss />
+      <Rss baseUrl={siteBaseUrl} />
       <Seo
         meta = {{
           title: title,

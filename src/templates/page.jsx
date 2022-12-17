@@ -31,13 +31,14 @@ const Page = ({ data, pageContext }) => {
 export const Head = ({ data, pageContext }) => {
   const title = pageContext.site.siteMetadata.title
   const description = data.contentfulIndex.description
-  const siteUrl = `${data.site.siteMetadata.siteUrl}/${pageContext.currentPage}`
+  const baseUrl = data.site.siteMetadata.siteUrl
+  const siteUrl = `${baseUrl}/${pageContext.currentPage}`
   const imageUrl = data.contentfulIndex.topImage.url
   const twitterAccount = data.site.siteMetadata.twitterAccount
 
   return (
     <>
-      <Rss />
+      <Rss baseUrl={baseUrl} />
       <Seo 
         meta={{
           title: title,
