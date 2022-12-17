@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "gatsby";
 
 const Rss = (baseUrl) => {
   const href = `${baseUrl.baseUrl}/rss.xml`
