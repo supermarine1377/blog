@@ -6,6 +6,7 @@ import Main from "../components/main"
 import ArticlePreviewList from "../components/article-preview-list"
 import Paginator from "../components/paginator"
 import Seo from "../meta/seo"
+import Rss from "../meta/rss"
 
 const Page = ({ data, pageContext }) => {
   const title = data.site.siteMetadata.title
@@ -35,15 +36,18 @@ export const Head = ({ data, pageContext }) => {
   const twitterAccount = data.site.siteMetadata.twitterAccount
 
   return (
-    <Seo 
-      meta={{
-        title: title,
-        description: description,
-        siteUrl: siteUrl,
-        imageUrl: imageUrl,
-        twitterAccount: twitterAccount
-      }} 
-    />
+    <>
+      <Rss />
+      <Seo 
+        meta={{
+          title: title,
+          description: description,
+          siteUrl: siteUrl,
+          imageUrl: imageUrl,
+          twitterAccount: twitterAccount
+        }} 
+      />
+    </>
   )
 }
 

@@ -7,6 +7,7 @@ import ArticlePreviewList from "../components/article-preview-list"
 import Headline from "../components/headline"
 import Paginator from "../components/paginator"
 import Seo from "../meta/seo"
+import Rss from "../meta/rss"
 
 const Index = ({ data }) => {
   const title = data.site.siteMetadata.title
@@ -39,6 +40,7 @@ export const Head = ({ data }) => {
 
   return (
     <>
+      <Rss />
       <Seo
         meta={{
           title: title,

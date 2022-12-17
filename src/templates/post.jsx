@@ -6,6 +6,7 @@ import { GatsbyImage } from "gatsby-plugin-image"
 import * as styles from "./post.module.css"
 import toFormattedJst from "../util/jst"
 import Seo from "../meta/seo"
+import Rss from "../meta/rss"
 
 const Post = (ctx) => {
   const post = ctx.pageContext.post
@@ -48,15 +49,18 @@ export const Head = (ctx) => {
   const twitterAccount = ctx.pageContext.site.siteMetadata.twitterAccount
 
   return (
-    <Seo
-      meta = {{
-        title: title,
-        description: description,
-        siteUrl: postUrl,
-        imageUrl: imageUrl,
-        twitterAccount: twitterAccount
-      }}
-    />
+    <>
+      <Rss />
+      <Seo
+        meta = {{
+          title: title,
+          description: description,
+          siteUrl: postUrl,
+          imageUrl: imageUrl,
+          twitterAccount: twitterAccount
+        }}
+      />
+    </>
   )
 }
 
