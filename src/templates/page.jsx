@@ -32,6 +32,8 @@ export const Head = ({ data, pageContext }) => {
   const description = data.contentfulIndex.description
   const siteUrl = `${data.site.siteMetadata.siteUrl}/${pageContext.currentPage}`
   const imageUrl = data.contentfulIndex.topImage.url
+  const twitterAccount = data.site.siteMetadata.twitterAccount
+
   return (
     <Seo 
       meta={{
@@ -39,18 +41,22 @@ export const Head = ({ data, pageContext }) => {
         description: description,
         siteUrl: siteUrl,
         imageUrl: imageUrl,
+        twitterAccount: twitterAccount
       }} 
     />
   )
 }
 
 export const pageQuery = graphql`
+  // TODO: Don't query the commmon data like the site-metadata, contentfulIndex
+  // Instead query them in gatsby-node.js and pass them as props to this page
   query pageQuery($skip: Int!, $limit: Int!) {
     site {
       siteMetadata {
         title
         description
         siteUrl
+        twitterAccount
       }
     }
     contentfulIndex {
