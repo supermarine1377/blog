@@ -29,8 +29,8 @@ const MyProfile = ({ title, topImage, description }) => {
               alt={"にほんブログ村のロゴ"}
             />
           </a>
-          <a href="https://investment.blogmura.com/americatoushi/ranking/in?p_cid=11158132" target="_blank" rel="noopener noreferrer" aria-label="にほんブログ村へ">
-            にほんブログ村
+          <a href="https://blog.with2.net/link/?id=2096540&tag=56" target="_brank" rel="noopener noreferrer" aria-label="「#投資」人気ブログランキング">
+            <img width="150" height="30" src="https://blog.with2.net/banner/tag/56/ss" alt="「#投資」人気ブログランキング" />
           </a>
           <a href="https://twitter.com/us_investing137" target="_blank" rel="noopener noreferrer" aria-label="公式Twitterアカウントへ">
             <StaticImage
