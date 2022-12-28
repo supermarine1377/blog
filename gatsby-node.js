@@ -4,6 +4,7 @@ const { numberOfPostsPerPage } = require('./src/config')
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
+  const { createRedirect } = actions
 
   const result = await graphql(`
     {
@@ -79,6 +80,12 @@ exports.createPages = async ({ graphql, actions }) => {
         site: site,
       }
     })
+    createRedirect({
+      fromPath: PostsPagePath(1),
+      toPath: "/",
+      isPermanent: true,
+      statusCode: 301
+    });
   })
 
   // create /blog/post/{slug}
@@ -95,14 +102,4 @@ exports.createPages = async ({ graphql, actions }) => {
       })
     }
   )
-  
-  const { createRedirect } = actions
-  createRedirect({
-    fromPath: PostsPagePath(1),
-    toPath: "/",
-    statusCode: 301,
-    isPermanent: true,
-    exactPath: true,
-    redirectInBrowser: true,
-  });
 }
