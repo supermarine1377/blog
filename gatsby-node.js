@@ -82,7 +82,7 @@ exports.createPages = async ({ graphql, actions }) => {
     })
     createRedirect({
       fromPath: PostsPagePath(1),
-      toPath: "/",
+      toPath: "",
       isPermanent: true,
       statusCode: 301
     });
