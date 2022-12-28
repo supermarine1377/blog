@@ -80,12 +80,6 @@ exports.createPages = async ({ graphql, actions }) => {
         site: site,
       }
     })
-    createRedirect({
-      fromPath: PostsPagePath(1),
-      toPath: "",
-      isPermanent: true,
-      statusCode: 301
-    });
   })
 
   // create /blog/post/{slug}
