@@ -4,6 +4,8 @@ import Layout from "../components/layout"
 import Main from "../components/main"
 import { GatsbyImage, StaticImage } from 'gatsby-plugin-image'
 import Seo from "../meta/seo"
+import Rss from "../meta/rss"
+
 import * as styles from './aboutme.module.css'
 
 const AboutMe = ({ data }) => {
@@ -44,9 +46,39 @@ const AboutMe = ({ data }) => {
 }
 
 export default AboutMe
+ 
+export const Head = ({ data }) => {
+  const node = data.allContentfulAboutme.edges[0].node
+  const title = node.title
+  const description = node.metaDescription
+  const siteUrl = data.site.siteMetadata.siteUrl
+  const imageUrl = node.image.url
+  const twitterAccount = data.site.siteMetadata.twitterAccount
+
+  return (
+    <>
+      <Rss baseUrl={siteUrl} />
+      <Seo
+        meta={{
+          title: title,
+          description: description,
+          siteUrl: siteUrl,
+          imageUrl: imageUrl,
+          twitterAccount: twitterAccount,
+        }}
+      />
+    </>
+  )
+}
 
 export const aboutmeQuery = graphql`
   query {
+    site {
+      siteMetadata {
+        siteUrl
+        twitterAccount
+      }
+    }
     allContentfulAboutme {
       edges {
         node {
@@ -55,6 +87,7 @@ export const aboutmeQuery = graphql`
             title
             description
             gatsbyImage(width: 504)
+            url
           }
           metaDescription
           description {
