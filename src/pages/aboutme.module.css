@@ -11,5 +11,21 @@
 
 .linksWrapper {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
+}
+
+.linksWrapper a {
+  margin-bottom: 12px;
+}
+
+.linksWrapper a:last-child {
+  margin-bottom: 0;
+}
+
+main a {
+  color: #0845bd;
+  text-decoration: none;
+  background-color: transparent;
 }
