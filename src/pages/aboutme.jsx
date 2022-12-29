@@ -1,5 +1,5 @@
 import React from "react";
-import { graphql} from 'gatsby'
+import { graphql, Link} from 'gatsby'
 import Layout from "../components/layout"
 import Main from "../components/main"
 import { GatsbyImage, StaticImage } from 'gatsby-plugin-image'
@@ -29,8 +29,9 @@ const AboutMe = ({ data }) => {
         />
         <section>
           <h1>ご連絡</h1>
-          <p>ご連絡いただく際は、TwitterのDMにてお願いいたします。</p>
+          <p>ご連絡いただく際は、メール、またはTwitterにてお願いいたします。</p>
           <div className={styles.linksWrapper}>
+            <a href="mailto:ukatanomitama@gmail.com" target="_brank" rel="nofollow noopener">ukatanomitama@gmail.com</a>
             <a href="https://twitter.com/us_investing137" target="_blank" rel="noopener noreferrer" aria-label="公式Twitterアカウントへ">
               <StaticImage
                 src="../images/twitter.png"
@@ -39,6 +40,7 @@ const AboutMe = ({ data }) => {
               />
             </a>
           </div>
+          <p>ご連絡いただいた際に頂いた情報は、<Link to="/privacy_policy">プライバシーポリシー</Link>に従い、厳重に管理致します。</p>
         </section>
       </Main>
     </Layout>

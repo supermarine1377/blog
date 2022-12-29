@@ -1,0 +1,9 @@
+.section {
+  overflow-wrap: anywhere;
+}
+
+.section a {
+  color: #0845bd;
+  text-decoration: none;
+  background-color: transparent;
+}
