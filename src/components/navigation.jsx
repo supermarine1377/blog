@@ -13,9 +13,14 @@ const Navigation = (siteData) => {
           {title}
         </span>
       </Link>
-      <Link to="/" activeClassName="active" className={styles.home}>
-        Home
-      </Link>
+      <div className={styles.linksWrapper}>
+        <Link to="/aboutme" activeClassName="active">
+          Aboutme
+        </Link>
+        <Link to="/" activeClassName="active" className={styles.home}>
+          Home
+        </Link>
+      </div>
     </nav>
   )
 }

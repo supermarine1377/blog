@@ -1,0 +1,15 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 4vw;
+}
+
+.headerWrapper {
+  max-width: 420px;
+}
+
+.linksWrapper {
+  display: flex;
+  justify-content: center;
+}

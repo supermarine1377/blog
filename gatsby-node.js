@@ -3,8 +3,7 @@ const { PostsPagePath, PostPagePath } = require(`./src/util/page-path.js`)
 const { numberOfPostsPerPage } = require('./src/config')
 
 exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions
-  const { createRedirect } = actions
+  const { createPage, createRedirect } = actions
 
   const result = await graphql(`
     {
@@ -68,18 +67,20 @@ exports.createPages = async ({ graphql, actions }) => {
   
   // create /posts/{page}
   Array.from({ length: numPages }).forEach((_, i) => {
-    const page = i + 1
-    createPage({
-      path: PostsPagePath(page),
-      component: path.resolve('src/templates/page.jsx'),
-      context: {
-        limit: postsPerPage,
-        skip: i * postsPerPage,
-        numPages,
-        currentPage: i + 1,
-        site: site,
-      }
-    })
+    if (i) {
+      const page = i + 1
+      createPage({
+        path: PostsPagePath(page),
+        component: path.resolve('src/templates/page.jsx'),
+        context: {
+          limit: postsPerPage,
+          skip: i * postsPerPage,
+          numPages,
+          currentPage: i + 1,
+          site: site,
+        }
+      })
+    }
   })
 
   // create /blog/post/{slug}
@@ -96,4 +97,11 @@ exports.createPages = async ({ graphql, actions }) => {
       })
     }
   )
+
+  createRedirect({
+    fromPath: "/posts/1",
+    toPath: "/",
+    redirectInBrowser: true,
+    isPermanent: true
+  });
 }
