@@ -6,5 +6,4 @@ const Rss = (baseUrl) => {
     <link rel="alternate" type="application/rss+xml" title="RSS feed" href={href}></link>
   )
 }
-
 export default Rss
