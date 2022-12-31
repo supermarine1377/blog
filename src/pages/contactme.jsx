@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import Layout from "../components/layout"
 import Main from "../components/main"
-import * as style from "./contact.module.css"
+import * as style from "./contactme.module.css"
 
 const Contact = () => {
   const [isAgreed, setIsAgreed] = useState(false)
