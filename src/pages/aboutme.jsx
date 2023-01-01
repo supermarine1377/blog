@@ -5,6 +5,7 @@ import Main from "../components/main"
 import { GatsbyImage, StaticImage } from 'gatsby-plugin-image'
 import Seo from "../meta/seo"
 import Rss from "../meta/rss"
+import useSiteMetadata from "../hooks/use-site-metadata";
 
 import * as styles from './aboutme.module.css'
 
@@ -31,6 +32,7 @@ const AboutMe = ({ data }) => {
           <h1>ご連絡</h1>
           <p>ご連絡いただく際は、メール、またはTwitterにてお願いいたします。</p>
           <div className={styles.linksWrapper}>
+            {/* TODO define mailadress and twitter account in gatsby-config.js and use them */}
             <a href="mailto:ukatanomitama@gmail.com" target="_brank" rel="nofollow noopener">ukatanomitama@gmail.com</a>
             <a href="https://twitter.com/us_investing137" target="_blank" rel="noopener noreferrer" aria-label="公式Twitterアカウントへ">
               <StaticImage
@@ -53,13 +55,13 @@ export const Head = ({ data }) => {
   const node = data.allContentfulAboutme.edges[0].node
   const title = node.title
   const description = node.metaDescription
-  const siteUrl = data.site.siteMetadata.siteUrl
   const imageUrl = node.image.url
-  const twitterAccount = data.site.siteMetadata.twitterAccount
+
+  const { siteUrl, twitterAccount } = useSiteMetadata()
 
   return (
     <>
-      <Rss baseUrl={siteUrl} />
+      <Rss />
       <Seo
         meta={{
           title: title,
