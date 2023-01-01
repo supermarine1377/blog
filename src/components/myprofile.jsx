@@ -3,7 +3,7 @@ import { GatsbyImage } from 'gatsby-plugin-image'
 import * as styles from './myprofile.module.css'
 import MyTwitter from "./mytwitter"
 import NinkiBlogRanking from "./ninki_blog_ranking"
-import NihonBlogMura from "./nhon_blog_mura"
+import NihonBlogMura from "./nihon_blog_mura"
 
 const MyProfile = ({ title, topImage, description }) => {
   return (

@@ -8,6 +8,11 @@
   padding: 4vh 6vw;
 }
 
+.body .links {
+  display: flex;
+  column-gap: 8px;
+}
+
 .body h2 {
   font-size: 22px;
   margin: 20px 0;
