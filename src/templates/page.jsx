@@ -7,9 +7,10 @@ import ArticlePreviewList from "../components/article-preview-list"
 import Paginator from "../components/paginator"
 import Seo from "../meta/seo"
 import Rss from "../meta/rss"
+import useSiteMetadata from "../hooks/use-site-metadata"
 
 const Page = ({ data, pageContext }) => {
-  const title = data.site.siteMetadata.title
+  const { title } = useSiteMetadata()
   const topImage = data.contentfulIndex.topImage
   const description = data.contentfulIndex.description
   const posts = data.allContentfulPost.nodes
@@ -29,21 +30,20 @@ const Page = ({ data, pageContext }) => {
 }
 
 export const Head = ({ data, pageContext }) => {
+  const { twitterAccount, siteUrl } = useSiteMetadata()
   const title = pageContext.site.siteMetadata.title
   const description = data.contentfulIndex.description
-  const baseUrl = data.site.siteMetadata.siteUrl
-  const siteUrl = `${baseUrl}/${pageContext.currentPage}`
+  const pageUrl = `${siteUrl}/posts/${pageContext.currentPage}`
   const imageUrl = data.contentfulIndex.topImage.url
-  const twitterAccount = data.site.siteMetadata.twitterAccount
 
   return (
     <>
-      <Rss baseUrl={baseUrl} />
+      <Rss />
       <Seo 
         meta={{
           title: title,
           description: description,
-          siteUrl: siteUrl,
+          siteUrl: pageUrl,
           imageUrl: imageUrl,
           twitterAccount: twitterAccount
         }} 

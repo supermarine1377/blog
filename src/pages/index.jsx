@@ -8,9 +8,10 @@ import Headline from "../components/headline"
 import Paginator from "../components/paginator"
 import Seo from "../meta/seo"
 import Rss from "../meta/rss"
+import useSiteMetadata from "../hooks/use-site-metadata"
 
 const Index = ({ data }) => {
-  const title = data.site.siteMetadata.title
+  const { title } = useSiteMetadata()
   const topImage = data.contentfulIndex.topImage
   const description = data.contentfulIndex.description
   const posts = data.allContentfulPost.nodes
@@ -32,15 +33,13 @@ const Index = ({ data }) => {
 }
 
 export const Head = ({ data }) => {
-  const title = data.site.siteMetadata.title
-  const siteUrl = data.site.siteMetadata.siteUrl
+  const { title, siteUrl, twitterAccount } = useSiteMetadata()
   const imageUrl = data.contentfulIndex.topImage.url
   const description = data.contentfulIndex.description
-  const twitterAccount = data.site.siteMetadata.twitterAccount
 
   return (
     <>
-      <Rss baseUrl={siteUrl} />
+      <Rss />
       <Seo
         meta={{
           title: title,

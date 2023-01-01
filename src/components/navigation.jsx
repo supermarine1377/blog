@@ -1,9 +1,10 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import useSiteMetadata from "../hooks/use-site-metadata";
 import * as styles from './navigation.module.css'
 
-const Navigation = (siteData) => {
-  const title = siteData.siteData.siteMetadata.title
+const Navigation = () => {
+  const { title } =  useSiteMetadata()
 
   return (
     <nav role="navigation" className={styles.container} aria-label="Main">
