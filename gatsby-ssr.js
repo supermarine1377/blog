@@ -1,10 +1,12 @@
-import React from 'react';
-import Root from './src/components/root';
+const React = require("react")
 
-export const onRenderBody = ({ setHtmlAttributes }) => {
+exports.onRenderBody = ({ setHtmlAttributes, setHeadComponents }) => {
   setHtmlAttributes({ lang: "ja" })
+  // setHeadComponents([
+  //   <script 
+  //     async 
+  //     src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8654869064923371"
+  //     crossOrigin="anonymous">
+  //   </script>
+  // ])
 }
-
-export const wrapRootElement = ({ element }) => {
-  return <Root>{element}</Root>;
-};
