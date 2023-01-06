@@ -86,15 +86,15 @@ const config: GatsbyConfig = {
         policy: [{userAgent: '*', allow: '/'}]
       }
     },
-    {
-      resolve: "gatsby-plugin-google-gtag",
-      options: {
-        trackingIds: [process.env.GA_MEASUREMENT_ID],
-        pluginConfig: {
-          head: true,
-        },
-      },
-    },
+    // {
+    //   resolve: "gatsby-plugin-google-gtag",
+    //   options: {
+    //     trackingIds: [process.env.GA_MEASUREMENT_ID],
+    //     pluginConfig: {
+    //       head: true,
+    //     },
+    //   },
+    // },
     {
       resolve: `gatsby-plugin-canonical-urls`,
       options: {
@@ -171,6 +171,7 @@ const config: GatsbyConfig = {
       },
     },
   ],
+  partytownProxiedURLs: [`https://www.googletagmanager.com/gtag/js?id=${process.env.GA_MEASUREMENT_ID}`]
 };
 
 export default config;
