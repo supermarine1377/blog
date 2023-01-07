@@ -6,12 +6,14 @@ import { GatsbyImage, StaticImage } from 'gatsby-plugin-image'
 import Seo from "../meta/seo"
 import Rss from "../meta/rss"
 import useSiteMetadata from "../hooks/use-site-metadata";
+import toFormattedJst from "../util/jst"
 
 import * as styles from './aboutme.module.css'
 
 const AboutMe = ({ data }) => {
   const node = data.allContentfulAboutme.edges[0].node
   const image = node.image
+  const updatedAt = toFormattedJst(node.updatedAt)
   const descriptionHTML = node.description.childMarkdownRemark.html
 
   return (
@@ -44,6 +46,7 @@ const AboutMe = ({ data }) => {
           </div>
           <p>ご連絡いただいた際に頂いた情報は、<Link to="/privacy_policy">プライバシーポリシー</Link>に従い、厳重に管理致します。</p>
         </section>
+        <p>最終更新日: {updatedAt}</p>
       </Main>
     </Layout>
   )
@@ -81,6 +84,7 @@ export const aboutmeQuery = graphql`
       edges {
         node {
           title
+          updatedAt
           image {
             title
             description
