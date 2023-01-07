@@ -1,11 +1,12 @@
 import React from "react"
-import { graphql} from 'gatsby'
+import { graphql } from 'gatsby'
 import Layout from "../components/layout"
 import MyProfile from "../components/myprofile"
 import Main from "../components/main"
 import ArticlePreviewList from "../components/article-preview-list"
 import Headline from "../components/headline"
 import Paginator from "../components/paginator"
+import SearchForm from "../components/sarch-form"
 import Seo from "../meta/seo"
 import Rss from "../meta/rss"
 import useSiteMetadata from "../hooks/use-site-metadata"
@@ -21,6 +22,7 @@ const Index = ({ data }) => {
       <Layout>
         <MyProfile title={title} topImage={topImage} description={description} />
         <Main>
+          <SearchForm />
           <section>
             <Headline str="最近の投稿" />
             <ArticlePreviewList posts={posts} />
