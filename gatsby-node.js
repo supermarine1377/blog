@@ -40,6 +40,7 @@ exports.createPages = async ({ graphql, actions }) => {
             }
             description
             createdAt
+            updatedAt
             body {
               childMarkdownRemark {
                 html
