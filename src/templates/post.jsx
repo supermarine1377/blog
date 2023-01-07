@@ -25,7 +25,8 @@ const Post = (ctx) => {
           </header>
           <section className={styles.body}>
             <Headline str={post.title} />
-            <p>{toFormattedJst(post.createdAt)}</p>
+            <p className={styles.date}>作成日: {toFormattedJst(post.createdAt)}</p>
+            <p className={styles.date}>更新日: {toFormattedJst(post.updatedAt)}</p>
             <div className={styles.links}>
               <NihonBlogMura />
               <NinkiBlogRanking />

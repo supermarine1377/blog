@@ -8,6 +8,10 @@
   padding: 4vh 6vw;
 }
 
+.body .date {
+  margin: 10px 0;
+}
+
 .body .links {
   display: flex;
   column-gap: 8px;
