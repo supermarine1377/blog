@@ -29,3 +29,7 @@
   text-decoration: none;
   background-color: transparent;
 }
+
+.description .gatsby-resp-image-wrapper {
+  max-width: 380px;
+}

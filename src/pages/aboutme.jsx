@@ -28,6 +28,7 @@ const AboutMe = ({ data }) => {
       </header>
       <Main>
         <section
+          className={styles.description}
           dangerouslySetInnerHTML={{__html: descriptionHTML}}
         />
         <section>
