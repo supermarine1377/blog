@@ -18,7 +18,7 @@ const Navigation = () => {
         <Link to="/aboutme" activeClassName="active">
           Aboutme
         </Link>
-        <Link to="/" activeClassName="active" className={styles.home}>
+        <Link to="/" activeClassName="active">
           Home
         </Link>
       </div>
