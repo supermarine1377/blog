@@ -77,12 +77,6 @@ export const Head = ({ data }) => {
 
 export const aboutmeQuery = graphql`
   query {
-    site {
-      siteMetadata {
-        siteUrl
-        twitterAccount
-      }
-    }
     allContentfulAboutme {
       edges {
         node {
