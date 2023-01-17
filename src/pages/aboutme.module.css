@@ -33,3 +33,8 @@
 .description .gatsby-resp-image-wrapper {
   max-width: 380px;
 }
+
+.contacts a {
+  color: #0845bd;
+  background-color: transparent;
+}

@@ -31,7 +31,7 @@ const AboutMe = ({ data }) => {
           className={styles.description}
           dangerouslySetInnerHTML={{__html: descriptionHTML}}
         />
-        <section>
+        <section className={styles.contacts}>
           <h1>ご連絡</h1>
           <p>ご連絡いただく際は、メール、またはTwitterにてお願いいたします。</p>
           <div className={styles.linksWrapper}>
