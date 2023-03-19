@@ -14,6 +14,7 @@ const ArticlePreview = (Post) => {
         <GatsbyImage 
           alt={post.featuredImage.title} 
           image={post.featuredImage.gatsbyImage} 
+          className={styles.image}
         />
       </header>
       <section className={styles.body}>
