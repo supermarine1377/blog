@@ -1,12 +1,22 @@
 .link {
   text-decoration: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,.1);
+}
+
+.link:hover {
+  text-decoration: none;
 }
 
 .link:hover .title {
   border-bottom-color: var(--primary);
 }
 
-.title {
+.link .body {
+  padding: 0 16px 8px 16px;
+}
+
+.link .title {
   display: inline-block;
   font-size: var(--text-lg);
   margin-bottom: 0;
@@ -14,7 +24,7 @@
   border-bottom: 1.5px solid transparent;
 }
 
-.meta {
+.link .meta {
   display: flex;
   justify-content: space-between;
   margin-top: var(--space-sm);
