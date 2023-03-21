@@ -5,6 +5,8 @@
 
 .link:hover {
   color: unset;
+  transition: .3s;
+  box-shadow: 0 4px 15px rgba(0,0,0,.3);
 }
 
 .link:hover .title {
