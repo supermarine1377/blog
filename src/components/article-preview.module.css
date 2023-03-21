@@ -4,7 +4,7 @@
 }
 
 .link:hover {
-  text-decoration: none;
+  color: unset;
 }
 
 .link:hover .title {
@@ -21,6 +21,7 @@
   margin-bottom: 0;
   margin-top: var(--space-lg);
   border-bottom: 1.5px solid transparent;
+  border: unset;
 }
 
 .link .meta {
