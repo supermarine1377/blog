@@ -5,3 +5,7 @@
 [build.environment]
   NODE_VERSION = "19.1.0"
   TZ = "Asia/Tokyo"
+
+[[redirects]]
+from = "/post/-1"
+to = "/post/23"
