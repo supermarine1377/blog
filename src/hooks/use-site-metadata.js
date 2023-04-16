@@ -10,6 +10,7 @@ const useSiteMetadata = () => {
             description
             siteUrl
             twitterAccount
+            contactPageUrl
           }
         }
       }
