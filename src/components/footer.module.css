@@ -1,0 +1,11 @@
+.footer {
+  margin: 0;
+  padding: 16px;
+  background-color: #003366;
+  color: #fff;
+  text-align: center;
+}
+
+.link {
+  text-decoration: underline;
+}

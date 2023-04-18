@@ -7,6 +7,8 @@ import * as styles from "./post.module.css"
 import toFormattedJst from "../util/jst"
 import Seo from "../meta/seo"
 import Rss from "../meta/rss"
+import NihonBlogMura from "../components/nihon_blog_mura"
+import NinkiBlogRanking from "../components/ninki_blog_ranking"
 
 const Post = (ctx) => {
   const post = ctx.pageContext.post
@@ -23,10 +25,19 @@ const Post = (ctx) => {
           </header>
           <section className={styles.body}>
             <Headline str={post.title} />
-            <p>{toFormattedJst(post.createdAt)}</p>
+            <p className={styles.date}>作成日: {toFormattedJst(post.createdAt)}</p>
+            <p className={styles.date}>更新日: {toFormattedJst(post.updatedAt)}</p>
+            <div className={styles.links}>
+              <NihonBlogMura />
+              <NinkiBlogRanking />
+            </div>
             <div            
               dangerouslySetInnerHTML={{__html: post.body.childMarkdownRemark.html}}
             />
+            <div className={styles.links}>
+              <NihonBlogMura />
+              <NinkiBlogRanking />
+            </div>
           </section>
         </article>
       </Main>
@@ -50,7 +61,7 @@ export const Head = (ctx) => {
 
   return (
     <>
-      <Rss baseUrl={siteBaseUrl} />
+      <Rss />
       <Seo
         meta = {{
           title: title,

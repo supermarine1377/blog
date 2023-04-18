@@ -10,7 +10,8 @@ const config: GatsbyConfig = {
     description:
       "米国株や米国長期債券を中心に投資しています。このブログでは、米国株に投資するにあたっての考え方を発信します。",
     siteUrl: "https://ukatanomitama.com",
-    twitterAccount: "@us_investing13"
+    twitterAccount: "@us_investing13",
+    contactPageUrl: "https://forms.gle/VjMu24MQbumwdTfm7"
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
   // If you use VSCode you can also use the GraphQL plugin
@@ -29,6 +30,7 @@ const config: GatsbyConfig = {
     "gatsby-transformer-sharp",
     "gatsby-plugin-sass",
     "gatsby-plugin-sitemap",
+    "gatsby-plugin-netlify",
     {
       resolve: "gatsby-plugin-manifest",
       options: {

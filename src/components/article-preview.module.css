@@ -1,20 +1,32 @@
 .link {
   text-decoration: none;
+  box-shadow: 0 4px 15px rgba(0,0,0,.1);
+}
+
+.link:hover {
+  color: unset;
+  transition: .3s;
+  box-shadow: 0 4px 15px rgba(0,0,0,.3);
 }
 
 .link:hover .title {
   border-bottom-color: var(--primary);
 }
 
-.title {
+.link .body {
+  padding: 0 16px 8px 16px;
+}
+
+.link .title {
   display: inline-block;
   font-size: var(--text-lg);
   margin-bottom: 0;
   margin-top: var(--space-lg);
   border-bottom: 1.5px solid transparent;
+  border: unset;
 }
 
-.meta {
+.link .meta {
   display: flex;
   justify-content: space-between;
   margin-top: var(--space-sm);

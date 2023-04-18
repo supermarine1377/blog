@@ -44,6 +44,14 @@
   font-weight: var(--bold);
 }
 
+.linksWrapper a {
+  margin-right: 12px;
+}
+
+.linksWrapper a:last-child {
+  margin-right: 0;
+}
+
 @media (max-width: 767px) {
   .logoLink > span:last-child {
     border: 0;

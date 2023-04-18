@@ -1,0 +1,36 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 4vw;
+}
+
+.headerWrapper {
+  max-width: 420px;
+}
+
+.linksWrapper {
+  display: flex;
+  column-gap: 24px;
+  align-items: center;
+  justify-content: center;
+}
+
+.linksWrapper a {
+  margin-bottom: 12px;
+}
+
+.linksWrapper a:last-child {
+  margin-bottom: 0;
+}
+
+.linksWrapper a {
+  color: #0845bd;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+.contacts a {
+  color: #0845bd;
+  background-color: transparent;
+}

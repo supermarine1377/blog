@@ -8,6 +8,15 @@
   padding: 4vh 6vw;
 }
 
+.body .date {
+  margin: 10px 0;
+}
+
+.body .links {
+  display: flex;
+  column-gap: 8px;
+}
+
 .body h2 {
   font-size: 22px;
   margin: 20px 0;
@@ -23,6 +32,7 @@
 
 .body p {
   font-size: 18px;
+  word-wrap: break-word;
 }
 
 .body blockquote {
@@ -44,4 +54,28 @@
   .body p {
     font-size: 18px;
   }
+}
+
+table {
+  width: 80%;
+  margin: 0 auto;
+  border-collapse: collapse;
+  font-size: 16px;
+  color: #333;
+}
+
+thead {
+  background-color: #f8f8f8;
+  font-weight: bold;
+}
+
+th,
+td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
 }

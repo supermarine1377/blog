@@ -16,7 +16,7 @@ const ArticlePreview = (Post) => {
           image={post.featuredImage.gatsbyImage} 
         />
       </header>
-      <section>
+      <section className={styles.body}>
         <h2 className={styles.title}>{post.title}</h2>
         <p className={styles.meta}>{toFormattedJst(post.createdAt)}</p>
       </section>
