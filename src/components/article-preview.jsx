@@ -9,7 +9,7 @@ const ArticlePreview = (Post) => {
   const post = Post.post
   const path = PostPagePath(post.slug)
   return (
-    <Link to={path} className={styles.link} key={post.id}>
+    <Link to={path} className={styles.link}>
       <header>
         <GatsbyImage 
           alt={post.featuredImage.title} 
