@@ -80,6 +80,8 @@ export const recommendedPostsQuery = graphql`
               createdAt
               updatedAt
             }
+            createdAt
+            updatedAt
           }
         }
       }
