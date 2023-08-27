@@ -34,7 +34,7 @@ const config: GatsbyConfig = {
     {
       resolve: "gatsby-plugin-manifest",
       options: {
-        icon: "src/images/icon.png",
+        icon: "src/images/android-chrome-512x512.png",
       },
     },
     "gatsby-plugin-mdx",
