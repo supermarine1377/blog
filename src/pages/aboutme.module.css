@@ -9,22 +9,26 @@
   max-width: 420px;
 }
 
-.linksWrapper {
+.sec .linksWrapper {
   display: flex;
   column-gap: 24px;
   align-items: center;
   justify-content: center;
 }
 
-.linksWrapper a {
-  margin-bottom: 12px;
-}
-
-.linksWrapper a:last-child {
+.sec .linksWrapper a:last-child {
   margin-bottom: 0;
 }
 
 .linksWrapper a {
+  margin-bottom: 12px;
+  color: #0845bd;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+.sec a {
+  margin-bottom: 12px;
   color: #0845bd;
   text-decoration: none;
   background-color: transparent;

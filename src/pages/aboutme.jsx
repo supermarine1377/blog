@@ -27,7 +27,7 @@ const AboutMe = ({ data }) => {
         </div>
       </header>
       <Main>
-        <section
+        <section className={styles.sec}
           dangerouslySetInnerHTML={{__html: descriptionHTML}}
         />
         <section className={styles.contacts}>
