@@ -73,6 +73,14 @@ const config: GatsbyConfig = {
               rel: "nofollow noopener",
             },
           },
+          {
+            resolve: "gatsby-remark-embed-youtube",
+            options: {
+              width: 560,
+              height: 315
+            }
+          },
+          "gatsby-remark-responsive-iframe"
         ],
       },
     },
