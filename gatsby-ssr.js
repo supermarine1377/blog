@@ -4,12 +4,12 @@ exports.onRenderBody = ({ setHtmlAttributes, setHeadComponents }) => {
   setHtmlAttributes({ lang: "ja" });
   setHeadComponents([
     <>
-      <script 
-        async 
+      <script
+        async
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8654869064923371"
         crossOrigin="anonymous">
       </script>
-      <ins 
+      <ins
         className="adsbygoogle"
         style={{ display: "block" }}
         data-ad-client="ca-pub-8654869064923371"
@@ -19,7 +19,17 @@ exports.onRenderBody = ({ setHtmlAttributes, setHeadComponents }) => {
       >
       </ins>
       <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
+        (adsbygoogle = window.adsbygoogle || []).push({ });
+      </script>
+      <ins 
+        className="adsbygoogle"
+        style={{ display:"block", textAlign:"center" }}
+        data-ad-layout="in-article"
+        data-ad-format="fluid"
+        data-ad-client="ca-pub-8654869064923371"
+        data-ad-slot="5540978973"></ins>
+      <script>
+        (adsbygoogle = window.adsbygoogle || []).push({ });
       </script>
     </>,
   ]);
