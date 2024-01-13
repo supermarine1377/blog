@@ -7,10 +7,10 @@ exports.onRenderBody = ({ setHtmlAttributes, setHeadComponents }) => {
       <script 
         async 
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8654869064923371"
-        crossorigin="anonymous">
+        crossOrigin="anonymous">
       </script>
       <ins 
-        class="adsbygoogle"
+        className="adsbygoogle"
         style={{ display: "block" }}
         data-ad-client="ca-pub-8654869064923371"
         data-ad-slot="1563441994"
