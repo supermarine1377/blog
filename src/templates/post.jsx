@@ -17,8 +17,8 @@ const Post = (ctx) => {
       <Main>
         <article>
           <header className={styles.imageWrapper}>
-            <GatsbyImage 
-              image={post.featuredImage.gatsbyImage} 
+            <GatsbyImage
+              image={post.featuredImage.gatsbyImage}
               title={post.featuredImage.title}
               alt={post.featuredImage.title}
             />
@@ -31,8 +31,8 @@ const Post = (ctx) => {
               <NihonBlogMura />
               <NinkiBlogRanking />
             </div>
-            <div            
-              dangerouslySetInnerHTML={{__html: post.body.childMarkdownRemark.html}}
+            <div
+              dangerouslySetInnerHTML={{ __html: post.body.childMarkdownRemark.html }}
             />
             <div className={styles.links}>
               <NihonBlogMura />
@@ -56,14 +56,14 @@ export const Head = (ctx) => {
   const postUrl = `${siteBaseUrl}/post/${slug}`
 
   const description = ctx.pageContext.post.description
-  const imageUrl= ctx.pageContext.post.featuredImage.url
+  const imageUrl = ctx.pageContext.post.featuredImage.url
   const twitterAccount = ctx.pageContext.site.siteMetadata.twitterAccount
 
   return (
     <>
       <Rss />
       <Seo
-        meta = {{
+        meta={{
           title: title,
           description: description,
           siteUrl: postUrl,
@@ -71,6 +71,17 @@ export const Head = (ctx) => {
           twitterAccount: twitterAccount
         }}
       />
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8654869064923371"
+        crossorigin="anonymous"></script>
+      <ins class="adsbygoogle"
+        style={{display: "block", textAlign: "center"}}
+        data-ad-layout="in-article"
+        data-ad-format="fluid"
+        data-ad-client="ca-pub-8654869064923371"
+        data-ad-slot="5540978973"></ins>
+      <script>
+        (adsbygoogle = window.adsbygoogle || []).push({ });
+      </script>
     </>
   )
 }
