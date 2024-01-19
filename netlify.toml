@@ -9,3 +9,8 @@
 [[redirects]]
 from = "/post/-1"
 to = "/post/23"
+
+[[redirects]]
+from = "/recommends"
+to = "/recommended-posts"
+status = 301
