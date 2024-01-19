@@ -18,7 +18,7 @@ const Navigation = () => {
         <Link to="/aboutme" activeClassName="active">
           Aboutme
         </Link>
-        <Link to="/recommends" activeClassName="active">
+        <Link to="/recommended-posts" activeClassName="active">
           Recommends
         </Link>
         <Link to="/" activeClassName="active">
