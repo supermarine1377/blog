@@ -17,6 +17,7 @@ const StockAnalysisForInvestors = ({ data }) => {
       <Main>
         <section>
           <Headline str="銘柄分析" />
+          <p>このサイトの管理人のいがらしが、バリュー投資家の観点から企業について考察した記事の一覧です。</p>
           <ArticlePreviewList posts={posts} />
         </section>
       </Main>
