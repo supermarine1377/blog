@@ -19,7 +19,10 @@ const Navigation = () => {
           Aboutme
         </Link>
         <Link to="/recommended-posts" activeClassName="active">
-          Recommends
+          おすすめの記事
+        </Link>
+        <Link to="/recommended-posts/stock-analysis-for-investors" activeClassName="active">
+          銘柄分析
         </Link>
         <Link to="/" activeClassName="active">
           Home
