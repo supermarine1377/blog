@@ -16,6 +16,8 @@ const RecomendedPost = ({ data }) => {
       <Main>
         <section>
           <Headline str="おすすめの記事" />
+          <p>このサイトの管理人のいがらしが書いたおすすめの記事一覧です。</p>
+          <p>バリュー投資家の視点での銘柄分析や、アメリカ長期金利や社債利回りなどの金利を考慮した市場分析に関する記事が中心です。</p>
           <ArticlePreviewList posts={posts} />
         </section>
       </Main>
