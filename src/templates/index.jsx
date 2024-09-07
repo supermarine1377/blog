@@ -3,34 +3,39 @@ import Layout from "../components/layout"
 import MyProfile from "../components/myprofile"
 import Main from "../components/main"
 import ArticlePreviewList from "../components/article-preview-list"
+import Headline from "../components/headline"
 import Paginator from "../components/paginator"
+import SearchForm from "../components/sarch-form"
 import Seo from "../meta/seo"
 import Rss from "../meta/rss"
 import useSiteMetadata from "../hooks/use-site-metadata"
 
-const Page = ({ pageContext }) => {
+const Index = ({ pageContext }) => {
   const { 
     site, 
     contentfulIndex,
     posts, 
-    currentPage,
-    numPosts, 
     numPages,
   } = pageContext
+
   const { title } = site.siteMetadata
   const topImage = contentfulIndex.topImage
   const description = contentfulIndex.description
 
   return (
-    <Layout>
-      <MyProfile title={title} topImage={topImage} description={description} />
-      <Main>
-        <section>
-          <ArticlePreviewList posts={posts} />
-        </section>
-      <Paginator currentPage={currentPage} numPages={numPages} />
-      </Main>
-    </Layout>
+    <>
+      <Layout>
+        <MyProfile title={title} topImage={topImage} description={description} />
+        <Main>
+          <SearchForm />
+          <section>
+            <Headline str="最近の投稿" />
+            <ArticlePreviewList posts={posts} />
+          </section>
+          <Paginator currentPage={1} numPages={numPages} />
+        </Main>
+      </Layout>
+    </>
   )
 }
 
@@ -56,4 +61,4 @@ export const Head = ({ pageContext }) => {
   )
 }
 
-export default Page
+export default Index

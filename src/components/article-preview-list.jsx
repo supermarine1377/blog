@@ -14,9 +14,9 @@ const ArticlePreviewList = ({ posts }) => {
   return (
     <div className={styles.container}>
       <div className={styles.articleList}>
-        {posts.map((post) => {        
+        {posts.map((post) => {      
           return (
-            <ArticlePreview post={post} key={post.id} />
+            <ArticlePreview post={post.node} key={post.node.id} />
           )
         })}
       </div>

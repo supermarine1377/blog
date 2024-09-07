@@ -6,7 +6,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage, createRedirect } = actions
 
   const result = await graphql(`
-    {
+    query MyQuery {
       site {
         siteMetadata {
           title
@@ -25,7 +25,7 @@ exports.createPages = async ({ graphql, actions }) => {
           url
         }
       }
-      allContentfulPost {
+      allContentfulPost(sort: {slug: DESC}) {
         totalCount
         edges {
           node {
@@ -58,16 +58,27 @@ exports.createPages = async ({ graphql, actions }) => {
     return
   }
 
-  const postsPerPage = numberOfPostsPerPage
-
+  const postsPerPage = 6
   const site = result.data.site
-  // const siteTitle = result.data.site.siteMetadata.title
-
+  const contentfulIndex = result.data.contentfulIndex
   const posts = result.data.allContentfulPost.edges
   const numPosts = result.data.allContentfulPost.totalCount
   const numPages = Math.ceil(numPosts / postsPerPage)
-  
-  // create /posts/{page}
+
+  // Create the homepage `/`
+  createPage({
+    path: "/",
+    component: path.resolve('src/templates/index.jsx'),  // We will move index.jsx to templates folder
+    context: {
+      site,
+      contentfulIndex,
+      posts: posts.slice(0, 6),
+      numPosts: numPosts,
+      numPages: numPages,
+    }
+  })
+
+  // Create paginated blog listing `/posts/{page}`
   Array.from({ length: numPages }).forEach((_, i) => {
     if (i) {
       const page = i + 1
@@ -75,49 +86,29 @@ exports.createPages = async ({ graphql, actions }) => {
         path: PostsPagePath(page),
         component: path.resolve('src/templates/page.jsx'),
         context: {
-          limit: postsPerPage,
-          skip: i * postsPerPage,
-          numPages,
-          currentPage: i + 1,
-          site: site,
+          site,
+          contentfulIndex,
+          posts: posts.slice(i * 7, i * 7 + 6),
+          currentPage: page,
+          numPosts: numPosts,
+          numPages: numPages,
         }
       })
     }
   })
 
-  // create /blog/post/{slug}
-  posts.forEach(
-    node => {
-      const post = node.node
-      createPage({
-        path: PostPagePath(post),
-        component: path.resolve(`src/templates/post.jsx`),
-        context: {
-          post: post,
-          site: site
-        }
-      })
-    }
-  )
-
-
+  // Create individual blog posts `/blog/post/{slug}`
   posts.forEach(node => {
     const post = node.node
-    if (post.slugString) {
-      createRedirect({
-        fromPath: `/post/${post.slug}/`,
-        toPath: `/post/${post.slugString}/`,
-        redirectInBrowser: true,
-        isPermanent: true
-      })
-
-      createRedirect({
-        fromPath: `/post/${post.slug}`,
-        toPath: `/post/${post.slugString}/`,
-        redirectInBrowser: true,
-        isPermanent: true
-      })
-    }
+    createPage({
+      path: PostPagePath(post),
+      component: path.resolve(`src/templates/post.jsx`),
+      context: {
+        post,
+        site,
+        contentfulIndex,
+      }
+    })
   })
 
   createRedirect({
@@ -125,5 +116,5 @@ exports.createPages = async ({ graphql, actions }) => {
     toPath: "/",
     redirectInBrowser: true,
     isPermanent: true
-  });
+  })
 }

@@ -2,9 +2,9 @@ import React from "react"
 import { Link } from "gatsby"
 import * as styles from "./paginator.module.css"
 
-const Paginator = ({ numPosts, currentPage }) => {
-  const { numberOfPostsPerPage } = require('../config')
-  const numPages = Math.ceil(numPosts / numberOfPostsPerPage)
+const Paginator = ({ numPages, currentPage }) => {
+  console.log(numPages)
+  console.log(currentPage)
   const pageArr = Array.from(Array(numPages).keys())
 
   return (
