@@ -10,7 +10,7 @@ import Rss from "../../meta/rss"
 
 const StockAnalysisForInvestors = ({ data }) => {
   const posts = data.allContentfulStockAnalysisForInvestors
-    .edges[0].node.posts
+    .edges[0].node
 
   return (
     <Layout>
@@ -75,6 +75,7 @@ export const recommendedPostsQuery = graphql`
           posts {
             id
             slug
+            slugString
             title
             featuredImage {
               id
