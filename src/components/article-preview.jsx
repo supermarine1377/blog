@@ -7,7 +7,7 @@ const { PostPagePath } = require("../util/page-path")
 
 const ArticlePreview = (Post) => {
   const post = Post.post
-  const path = PostPagePath(post.slug)
+  const path = PostPagePath(post)
   return (
     <Link to={path} className={styles.link}>
       <header>

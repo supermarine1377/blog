@@ -79,6 +79,7 @@ export const pageQuery = graphql`
       nodes {
         id
         slug
+        slugString
         title
         description
         featuredImage {

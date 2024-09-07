@@ -80,6 +80,7 @@ export const topQuery = graphql`
       nodes {
         id
         slug
+        slugString
         title
         featuredImage {
           id

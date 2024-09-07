@@ -31,6 +31,7 @@ exports.createPages = async ({ graphql, actions }) => {
           node {
             id
             slug
+            slugString
             title
             featuredImage {
               gatsbyImage(width: 504)
@@ -89,7 +90,7 @@ exports.createPages = async ({ graphql, actions }) => {
     node => {
       const post = node.node
       createPage({
-        path: PostPagePath(post.slug),
+        path: PostPagePath(post),
         component: path.resolve(`src/templates/post.jsx`),
         context: {
           post: post,
