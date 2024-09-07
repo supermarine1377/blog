@@ -3,9 +3,6 @@ const PostsPagePath = (page) => {
 }
 
 const PostPagePath = (post) => {
-  if (post.slug == '41') {
-    console.log(post)
-  }
   return `/post/${post.slugString || post.slug}`
 }
 
