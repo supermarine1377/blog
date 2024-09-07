@@ -6,7 +6,6 @@ import ArticlePreviewList from "../components/article-preview-list"
 import Paginator from "../components/paginator"
 import Seo from "../meta/seo"
 import Rss from "../meta/rss"
-import useSiteMetadata from "../hooks/use-site-metadata"
 
 const Page = ({ pageContext }) => {
   const { 
@@ -14,11 +13,10 @@ const Page = ({ pageContext }) => {
     contentfulIndex,
     posts, 
     currentPage,
-    numPosts, 
     numPages,
   } = pageContext
   const { title } = site.siteMetadata
-  const topImage = contentfulIndex.topImage
+  const topImage = contentfulIndex.numPosts
   const description = contentfulIndex.description
 
   return (

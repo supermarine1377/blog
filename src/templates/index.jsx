@@ -8,7 +8,6 @@ import Paginator from "../components/paginator"
 import SearchForm from "../components/sarch-form"
 import Seo from "../meta/seo"
 import Rss from "../meta/rss"
-import useSiteMetadata from "../hooks/use-site-metadata"
 
 const Index = ({ pageContext }) => {
   const { 
