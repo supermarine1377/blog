@@ -118,4 +118,24 @@ exports.createPages = async ({ graphql, actions }) => {
     redirectInBrowser: true,
     isPermanent: true
   })
+
+  posts.forEach(node => {
+    const post = node.node
+    if (post.slugString) {
+      createRedirect({
+        fromPath: `/post/${post.slug}/`,
+        toPath: `/post/${post.slugString}/`,
+        redirectInBrowser: true,
+        isPermanent: true
+      })
+
+      createRedirect({
+        fromPath: `/post/${post.slug}`,
+        toPath: `/post/${post.slugString}/`,
+        redirectInBrowser: true,
+        isPermanent: true
+      })
+    }
+  })
+
 }
