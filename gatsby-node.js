@@ -58,11 +58,12 @@ exports.createPages = async ({ graphql, actions }) => {
     return
   }
 
-  const postsPerPage = 6
   const site = result.data.site
   const contentfulIndex = result.data.contentfulIndex
   const posts = result.data.allContentfulPost.edges
   const numPosts = result.data.allContentfulPost.totalCount
+  const postsPerPage = 6
+
   const numPages = Math.ceil(numPosts / postsPerPage)
 
   // Create the homepage `/`
@@ -72,7 +73,7 @@ exports.createPages = async ({ graphql, actions }) => {
     context: {
       site,
       contentfulIndex,
-      posts: posts.slice(0, 6),
+      posts: posts.slice(0, postsPerPage),
       numPosts: numPosts,
       numPages: numPages,
     }
@@ -88,7 +89,7 @@ exports.createPages = async ({ graphql, actions }) => {
         context: {
           site,
           contentfulIndex,
-          posts: posts.slice(i * 7, i * 7 + 6),
+          posts: posts.slice(i * postsPerPage, i * postsPerPage + postsPerPage),
           currentPage: page,
           numPosts: numPosts,
           numPages: numPages,
