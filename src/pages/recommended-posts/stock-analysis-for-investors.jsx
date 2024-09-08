@@ -10,7 +10,7 @@ import Rss from "../../meta/rss"
 
 const StockAnalysisForInvestors = ({ data }) => {
   const posts = data.allContentfulStockAnalysisForInvestors
-    .edges[0].node
+    .edges[0].node.posts
 
   return (
     <Layout>

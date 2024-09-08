@@ -9,7 +9,7 @@ import useSiteMetadata from "../hooks/use-site-metadata"
 import Rss from "../meta/rss"
 
 const RecomendedPost = ({ data }) => {
-  const posts = data.allContentfulRecommendedPosts.edges[0].node
+  const posts = data.allContentfulRecommendedPosts.edges[0].node.recommendPosts
 
   return (
     <Layout>
