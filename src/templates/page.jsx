@@ -1,6 +1,5 @@
 import React from "react"
 import Layout from "../components/layout"
-import MyProfile from "../components/myprofile"
 import Main from "../components/main"
 import ArticlePreviewList from "../components/article-preview-list"
 import Paginator from "../components/paginator"
@@ -9,22 +8,22 @@ import Rss from "../meta/rss"
 
 const Page = ({ pageContext }) => {
   const { 
-    site, 
-    contentfulIndex,
     posts, 
     currentPage,
     numPages,
   } = pageContext
-  const { title } = site.siteMetadata
-  const topImage = contentfulIndex.numPosts
-  const description = contentfulIndex.description
+  const postInNode = []
+  posts.forEach(
+    post => {
+      postInNode.push(post.node)
+    }
+  )
 
   return (
     <Layout>
-      <MyProfile title={title} topImage={topImage} description={description} />
       <Main>
         <section>
-          <ArticlePreviewList posts={posts} />
+          <ArticlePreviewList posts={postInNode} />
         </section>
       <Paginator currentPage={currentPage} numPages={numPages} />
       </Main>

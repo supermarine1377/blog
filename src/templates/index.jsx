@@ -21,6 +21,13 @@ const Index = ({ pageContext }) => {
   const topImage = contentfulIndex.topImage
   const description = contentfulIndex.description
 
+ const postInNode = []
+  posts.forEach(
+    post => {
+      postInNode.push(post.node)
+    }
+  )
+
   return (
     <>
       <Layout>
@@ -29,7 +36,7 @@ const Index = ({ pageContext }) => {
           <SearchForm />
           <section>
             <Headline str="最近の投稿" />
-            <ArticlePreviewList posts={posts} />
+            <ArticlePreviewList posts={postInNode} />
           </section>
           <Paginator currentPage={1} numPages={numPages} />
         </Main>
