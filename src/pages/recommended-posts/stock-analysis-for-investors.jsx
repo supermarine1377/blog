@@ -76,6 +76,7 @@ export const recommendedPostsQuery = graphql`
           posts {
             id
             slug
+            slugString
             title
             featuredImage {
               id
