@@ -1,6 +1,5 @@
 const path = require(`path`)
 const { PostsPagePath, PostPagePath } = require(`./src/util/page-path.js`)
-const { numberOfPostsPerPage } = require('./src/config')
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage, createRedirect } = actions
@@ -10,6 +9,7 @@ exports.createPages = async ({ graphql, actions }) => {
       site {
         siteMetadata {
           title
+          titleInTop
           description
           siteUrl
           twitterAccount
