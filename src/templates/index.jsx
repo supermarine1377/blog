@@ -17,7 +17,7 @@ const Index = ({ pageContext }) => {
     numPages,
   } = pageContext
 
-  const { title } = site.siteMetadata
+  const { titleInTop } = site.siteMetadata
   const topImage = contentfulIndex.topImage
   const description = contentfulIndex.description
 
@@ -31,7 +31,7 @@ const Index = ({ pageContext }) => {
   return (
     <>
       <Layout>
-        <MyProfile title={title} topImage={topImage} description={description} />
+        <MyProfile title={titleInTop} topImage={topImage} description={description} />
         <Main>
           <SearchForm />
           <section>

@@ -4,14 +4,14 @@ import useSiteMetadata from "../hooks/use-site-metadata";
 import * as styles from './navigation.module.css'
 
 const Navigation = () => {
-  const { title } =  useSiteMetadata()
+  const { titleInTop } =  useSiteMetadata()
 
   return (
     <nav role="navigation" className={styles.container} aria-label="Main">
       <Link to="/" className={styles.logoLink}>
         <span className={styles.logo} />
         <span className={styles.navigationItem}>
-          {title}
+          {titleInTop}
         </span>
       </Link>
       <div className={styles.linksWrapper}>

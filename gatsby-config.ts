@@ -6,9 +6,10 @@ require("dotenv").config({
 
 const config: GatsbyConfig = {
   siteMetadata: {
-    title: "米国株投資について語る",
+    title: "いがらしの株式・債券投資ノート – 初心者から学べる資産運用術",
+    titleInTop: "いがらしの株式・債券投資ノート",
     description:
-      "米国株や米国長期債券を中心に投資しています。このブログでは、米国株に投資するにあたっての考え方を発信します。",
+      "米国株や米国長期債券、日本株を中心に投資しています。このブログでは、米国株に投資するにあたっての考え方を発信します。",
     siteUrl: "https://ukatanomitama.com",
     twitterAccount: "@us_investing13",
     contactPageUrl: "https://forms.gle/VjMu24MQbumwdTfm7"
