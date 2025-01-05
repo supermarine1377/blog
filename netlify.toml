@@ -3,7 +3,7 @@
   publish = "/public"
 
 [build.environment]
-  NODE_VERSION = "18.17.1"
+  NODE_VERSION = "23.5.0"
   TZ = "Asia/Tokyo"
 
 [[redirects]]
