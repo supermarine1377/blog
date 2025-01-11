@@ -4,15 +4,21 @@ require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 });
 
+const title = "いがらしの株式・債券投資ノート – 初心者から学べる資産運用術"
+const titleInTop = "いがらしの株式・債券投資ノート"
+const description = "米国株や米国長期債券、日本株を中心に投資しています。このブログでは、米国株に投資するにあたっての考え方を発信します。"
+const siteUrl = "https://ukatanomitama.com"
+const twitterAccount = "@us_investing13"
+const contactPageUrl = "https://forms.gle/VjMu24MQbumwdTfm7"
+
 const config: GatsbyConfig = {
   siteMetadata: {
-    title: "いがらしの株式・債券投資ノート – 初心者から学べる資産運用術",
-    titleInTop: "いがらしの株式・債券投資ノート",
-    description:
-      "米国株や米国長期債券、日本株を中心に投資しています。このブログでは、米国株に投資するにあたっての考え方を発信します。",
-    siteUrl: "https://ukatanomitama.com",
-    twitterAccount: "@us_investing13",
-    contactPageUrl: "https://forms.gle/VjMu24MQbumwdTfm7"
+    title: title,
+    titleInTop: titleInTop,
+    description: description,
+    siteUrl: siteUrl,
+    twitterAccount: twitterAccount,
+    contactPageUrl: contactPageUrl,
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
   // If you use VSCode you can also use the GraphQL plugin
@@ -168,7 +174,7 @@ const config: GatsbyConfig = {
               }
             `,
             output: "/rss.xml",
-            title: "米国株投資について語る",
+            title: title,
             // optional configuration to insert feed reference in pages:
             // if `string` is used, it will be used to create RegExp and then test if pathname of
             // current page satisfied this regular expression;
