@@ -1,9 +1,23 @@
+# ukatanomitama.com
+
 [![Netlify Status](https://api.netlify.com/api/v1/badges/af4bbd51-6bec-4009-8d2d-aa0b347f04dd/deploy-status)](https://app.netlify.com/sites/utakanomitama/deploys)
 
-# What is this?
+## Netlify functions
 
-This blog "ukatanomitama" describes the investing basics and thoughts of me.
+First configure an environment variable in Netlify or export manually like this:
 
-# Technology
+```
+export FED_API_KEY=<YOUR_API_KEY>
+```
 
-This site is built with Gatsby and hosted in Netlify.
+Then start a local server:
+
+```
+netlify functions:serve
+```
+
+Run cURL:
+
+```
+curl http://localhost:9999/.netlify/functions/investment_environment_score
+```
