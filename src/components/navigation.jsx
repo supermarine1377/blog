@@ -21,8 +21,8 @@ const Navigation = () => {
         <Link to="/recommended-posts" activeClassName="active">
           おすすめの記事
         </Link>
-        <Link to="/recommended-posts/stock-analysis-for-investors" activeClassName="active">
-          銘柄分析
+        <Link to="/investment-environment-score/" activeClassName="active">
+          現在の投資環境スコア
         </Link>
         <Link to="/" activeClassName="active">
           Home

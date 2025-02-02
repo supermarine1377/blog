@@ -63,6 +63,7 @@ exports.createPages = async ({ graphql, actions }) => {
   createIndexPage(queryResult, createPage)
   createPostsPage(queryResult, createPage)
   createRedirects(queryResult, createRedirect)
+  createInvestmentEnvironmentScorePage(createPage)
 }
 
 const createIndexPage = (queryResult, createPage) => {
@@ -137,4 +138,24 @@ const createRedirects = (queryResult, createRedirect) => {
       })
     }
   })
+}
+
+const createInvestmentEnvironmentScorePage = async (createPage) => {
+  try {
+    const response = await fetch('https://ukatanomitama.com/.netlify/functions/investment_environment_score')
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`)
+    }
+
+    const data = await response.json()
+
+    createPage({
+      path: "/investment-environment-score",
+      component: path.resolve("src/templates/investment_environment_score.jsx"),
+      context: { score: data.investment_environment_score },
+    });
+
+  } catch (error) {
+    console.error('Error fetching investment environment score:', error)
+  }
 }
