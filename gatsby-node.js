@@ -62,6 +62,8 @@ exports.createPages = async ({ graphql, actions }) => {
 
   createIndexPage(queryResult, createPage)
   createPostsPage(queryResult, createPage)
+  createPostPages(queryResult, createPage)
+
   createRedirects(queryResult, createRedirect)
   createInvestmentEnvironmentScorePage(createPage)
 }
@@ -92,9 +94,6 @@ const createPostsPage = (queryResult, createPage) => {
   const site = queryResult.data.site
   const contentfulIndex = queryResult.data.contentfulIndex
   const posts = queryResult.data.allContentfulPost.edges
-  const numPosts = queryResult.data.allContentfulPost.totalCount
-  const postsPerPage = 6
-  const numPages = Math.ceil(numPosts / postsPerPage)
 
   // Create individual blog posts `/blog/post/{slug}`
   posts.forEach(node => {
@@ -108,6 +107,33 @@ const createPostsPage = (queryResult, createPage) => {
         contentfulIndex,
       }
     })
+  })
+}
+
+const createPostPages = (queryResult, createPage) => {
+  const site = queryResult.data.site
+  const contentfulIndex = queryResult.data.contentfulIndex
+  const posts = queryResult.data.allContentfulPost.edges
+  const numPosts = queryResult.data.allContentfulPost.totalCount
+  const postsPerPage = 6
+  const numPages = Math.ceil(numPosts / postsPerPage)
+
+  Array.from({ length: numPages }).forEach((_, i) => {
+    if (i) {
+      const page = i + 1
+      createPage({
+        path: PostsPagePath(page),
+        component: path.resolve('src/templates/page.jsx'),
+        context: {
+          site,
+          contentfulIndex,
+          posts: posts.slice(i * postsPerPage, i * postsPerPage + postsPerPage),
+          currentPage: page,
+          numPosts: numPosts,
+          numPages: numPages,
+        }
+      })
+    }
   })
 }
 
