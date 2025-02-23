@@ -1,11 +1,11 @@
 import React from "react"
-import Layout from "../components/layout"
-import Main from "../components/main"
-import Seo from "../meta/seo"
-import Rss from "../meta/rss"
-import useSiteMetadata from "../hooks/use-site-metadata"
-import toFormattedJst from "../util/jst"
-import "./investment_environment_score.module.css"
+import Layout from "../../components/layout"
+import Main from "../../components/main"
+import Seo from "../../meta/seo"
+import Rss from "../../meta/rss"
+import useSiteMetadata from "../../hooks/use-site-metadata"
+import toFormattedJst from "../../util/jst"
+import "./style.css"
 
 
 const InvestmentEnvironmentScore = ({ pageContext }) => {
@@ -31,7 +31,9 @@ const InvestmentEnvironmentScore = ({ pageContext }) => {
             <li>アメリカ社債スプレッド（BAA10Y）</li>
             <li>米ドル指数（DTWEXBGS）</li>
           </ul>
-          <p>これらの指標は、世界経済を牽引するアメリカの金融政策や信用サイクルを反映するため、世界経済の動向を把握し、より的確な投資判断に役立ちます。</p>        </section>
+          <p>これらの指標は、世界経済を牽引するアメリカの金融政策や信用サイクルを反映するため、世界経済の動向を把握し、より的確な投資判断に役立ちます。</p>
+          
+        </section>
         <section>
           <h2>投資環境スコアの推移 (2024年8月以降) - 過去のデータ分析</h2>
           <p>2024年8月以降の投資環境スコアの推移を以下に示します。過去のスコア変動を分析することで、今後の投資戦略を立てる参考にしてください。</p>

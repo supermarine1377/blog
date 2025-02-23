@@ -78,7 +78,7 @@ const createIndexPage = (queryResult, createPage) => {
 
   createPage({
     path: "/",
-    component: path.resolve('src/templates/index.jsx'),  // We will move index.jsx to templates folder
+    component: path.resolve('src/templates/index/index.jsx'),  // We will move index.jsx to templates folder
     context: {
       site,
       contentfulIndex,
@@ -100,7 +100,7 @@ const createPostsPage = (queryResult, createPage) => {
     const post = node.node
     createPage({
       path: PostPagePath(post),
-      component: path.resolve(`src/templates/post.jsx`),
+      component: path.resolve(`src/templates/post/index.jsx`),
       context: {
         post,
         site,
@@ -123,7 +123,7 @@ const createPostPages = (queryResult, createPage) => {
       const page = i + 1
       createPage({
         path: PostsPagePath(page),
-        component: path.resolve('src/templates/page.jsx'),
+        component: path.resolve('src/templates/page/index.jsx'),
         context: {
           site,
           contentfulIndex,
@@ -177,8 +177,10 @@ const createInvestmentEnvironmentScorePage = async (createPage) => {
 
     createPage({
       path: "/investment-environment-score",
-      component: path.resolve("src/templates/investment_environment_score.jsx"),
-      context: { score: data.investment_environment_score },
+      component: path.resolve("src/templates/investment_environment_score/index.jsx"),
+      context: { 
+        score: data.investment_environment_score,
+      },
     });
 
   } catch (error) {

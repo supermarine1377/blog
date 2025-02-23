@@ -1,13 +1,13 @@
 import React from "react"
-import Layout from "../components/layout"
-import MyProfile from "../components/myprofile"
-import Main from "../components/main"
-import ArticlePreviewList from "../components/article-preview-list"
-import Headline from "../components/headline"
-import Paginator from "../components/paginator"
-import SearchForm from "../components/sarch-form"
-import Seo from "../meta/seo"
-import Rss from "../meta/rss"
+import Layout from "../../components/layout"
+import MyProfile from "../../components/myprofile"
+import Main from "../../components/main"
+import ArticlePreviewList from "../../components/article-preview-list"
+import Headline from "../../components/headline"
+import Paginator from "../../components/paginator"
+import SearchForm from "../../components/sarch-form"
+import Seo from "../../meta/seo"
+import Rss from "../../meta/rss"
 
 const Index = ({ pageContext }) => {
   const { 
