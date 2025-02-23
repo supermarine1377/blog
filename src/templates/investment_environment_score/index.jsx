@@ -1,9 +1,6 @@
 import React from "react"
 import Layout from "../../components/layout"
 import Main from "../../components/main"
-import Seo from "../../meta/seo"
-import Rss from "../../meta/rss"
-import useSiteMetadata from "../../hooks/use-site-metadata"
 import toFormattedJst from "../../util/jst"
 import "./style.css"
 
