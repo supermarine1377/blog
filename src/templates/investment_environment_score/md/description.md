@@ -46,6 +46,7 @@ BAA10Yとは、アメリカ社債利回りとアメリカ10年国債利回りの
 詳しくは以下の記事をご覧ください。
 
 [S&P500の上昇に関連してBAA10Yに注目すべき理由](https://ukatanomitama.com/post/23/)
+
 [2023年、注目するべきBAA10Y（社債スプレッド）とは？不景気を予測できるのか？](https://ukatanomitama.com/post/8/)
 
 ### 米ドル指数（DTWEXBGS）
