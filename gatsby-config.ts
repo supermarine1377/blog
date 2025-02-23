@@ -62,6 +62,13 @@ const config: GatsbyConfig = {
       __key: "pages",
     },
     {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "description",
+        path: "src/templates/investment_environment_score/md",
+      },
+    },
+    {
       resolve: "gatsby-transformer-remark",
       options: {
         plugins: [

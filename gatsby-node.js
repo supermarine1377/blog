@@ -65,7 +65,7 @@ exports.createPages = async ({ graphql, actions }) => {
   createPostPages(queryResult, createPage)
 
   createRedirects(queryResult, createRedirect)
-  await createInvestmentEnvironmentScorePage(createPage)
+  await createInvestmentEnvironmentScorePage(createPage, graphql)
 }
 
 const createIndexPage = (queryResult, createPage) => {
@@ -166,24 +166,48 @@ const createRedirects = (queryResult, createRedirect) => {
   })
 }
 
-const createInvestmentEnvironmentScorePage = async (createPage) => {
+const createInvestmentEnvironmentScorePage = async (createPage, graphql) => {
   try {
-    const response = await fetch('https://ukatanomitama.com/.netlify/functions/investment_environment_score')
+    const response = await fetch('https://ukatanomitama.com/.netlify/functions/investment_environment_score');
     if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`)
+      throw new Error(`HTTP error! Status: ${response.status}`);
     }
 
-    const data = await response.json()
+    const data = await response.json();
+    const score = data.investment_environment_score;
+
+    // Query for the Markdown file
+    const markdownResult = await graphql(`
+      {
+        markdownRemark(
+          fileAbsolutePath: {regex: "/(investment_environment_score/)/"}
+        ) {
+          html
+          frontmatter {
+            title
+            description
+          }
+        }
+      }
+    `);
+
+    if (markdownResult.errors) {
+      throw markdownResult.errors;
+    }
+
+    const { html, frontmatter } = markdownResult.data.markdownRemark;
 
     createPage({
       path: "/investment-environment-score",
       component: path.resolve("src/templates/investment_environment_score/index.jsx"),
-      context: { 
-        score: data.investment_environment_score,
+      context: {
+        score: score,
+        html: html,
+        frontmatter: frontmatter,
       },
     });
 
   } catch (error) {
-    console.error('Error fetching investment environment score:', error)
+    console.error('Error fetching investment environment score or Markdown:', error);
   }
-}
+};
