@@ -1,10 +1,10 @@
 import React from "react"
-import Layout from "../components/layout"
-import Main from "../components/main"
-import ArticlePreviewList from "../components/article-preview-list"
-import Paginator from "../components/paginator"
-import Seo from "../meta/seo"
-import Rss from "../meta/rss"
+import Layout from "../../components/layout"
+import Main from "../../components/main"
+import ArticlePreviewList from "../../components/article-preview-list"
+import Paginator from "../../components/paginator"
+import Seo from "../../meta/seo"
+import Rss from "../../meta/rss"
 
 const Page = ({ pageContext }) => {
   const { 

@@ -1,14 +1,14 @@
 import React from "react"
-import Layout from "../components/layout"
-import Main from "../components/main"
-import Headline from "../components/headline"
+import Layout from "../../components/layout"
+import Main from "../../components/main"
+import Headline from "../../components/headline"
 import { GatsbyImage } from "gatsby-plugin-image"
 import * as styles from "./post.module.css"
-import toFormattedJst from "../util/jst"
-import Seo from "../meta/seo"
-import Rss from "../meta/rss"
-import NihonBlogMura from "../components/nihon_blog_mura"
-import NinkiBlogRanking from "../components/ninki_blog_ranking"
+import toFormattedJst from "../../util/jst"
+import Seo from "../../meta/seo"
+import Rss from "../../meta/rss"
+import NihonBlogMura from "../../components/nihon_blog_mura"
+import NinkiBlogRanking from "../../components/ninki_blog_ranking"
 
 const Post = (ctx) => {
   const post = ctx.pageContext.post
