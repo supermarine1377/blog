@@ -65,7 +65,7 @@ exports.createPages = async ({ graphql, actions }) => {
   createPostPages(queryResult, createPage)
 
   createRedirects(queryResult, createRedirect)
-  createInvestmentEnvironmentScorePage(createPage)
+  await createInvestmentEnvironmentScorePage(createPage)
 }
 
 const createIndexPage = (queryResult, createPage) => {
