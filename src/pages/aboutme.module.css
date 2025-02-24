@@ -6,7 +6,9 @@
 }
 
 .headerWrapper {
-  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .sec .linksWrapper {
