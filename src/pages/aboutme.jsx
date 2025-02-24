@@ -23,7 +23,7 @@ const AboutMe = ({ data }) => {
           <GatsbyImage
             image={image.gatsbyImage}
           />
-          <p>このブログの運営者のいがらしです。猫が好きです。</p>
+          <p>このブログの運営者のいがらしのポートフォリオ</p>
         </div>
       </header>
       <Main>
