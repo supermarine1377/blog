@@ -22,6 +22,7 @@ const AboutMe = ({ data }) => {
         <div className={styles.headerWrapper}>
           <GatsbyImage
             image={image.gatsbyImage}
+            alt={image.description}
           />
           <p>このブログの運営者のいがらしのポートフォリオ</p>
         </div>
@@ -88,7 +89,7 @@ export const aboutmeQuery = graphql`
           image {
             title
             description
-            gatsbyImage(width: 504)
+            gatsbyImage(height: 500, layout: FIXED)
             url
           }
           metaDescription
