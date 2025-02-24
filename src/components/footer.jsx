@@ -6,7 +6,7 @@ const Footer = () =>  {
   const { contactPageUrl } = useSiteMetadata()
   return (
     <footer className={styles.footer}>
-      © 2022 いがらし <a target="blank" rel="noopener noreferrer" href={contactPageUrl} className={styles.link}>お問い合わせ</a>
+      © 2025 いがらし <a target="blank" rel="noopener noreferrer" href={contactPageUrl} className={styles.link}>お問い合わせ</a>
     </footer>
   )
 }
