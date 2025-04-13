@@ -94,7 +94,13 @@ const config: GatsbyConfig = {
               height: 315
             }
           },
-          "gatsby-remark-responsive-iframe"
+          "gatsby-remark-responsive-iframe",
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 800,
+            },
+          },
         ],
       },
     },
